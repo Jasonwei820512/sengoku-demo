@@ -1,5 +1,6 @@
 // Decode once and loop the PCM buffer in Web Audio (no HTMLAudio loop gap).
 export function createMusic(){
+ let volume=1;
  let ctx,gain,source,kind=null,muted=false,paused=false,token=0,offset=0,began=0;
  const VERSION='C';
  const cache=new Map(),lengths={bgm_ch1:90,bgm_ch1_boss:80,jingle_clear:4};
@@ -27,9 +28,9 @@ export function createMusic(){
    const buffer=await cache.get(name);if(request!==token||muted||paused||document.hidden)return;
    source=ctx.createBufferSource();source.buffer=buffer;source.loop=name!=='jingle_clear';source.loopStart=0;source.loopEnd=Math.min(buffer.duration,lengths[name]);source.connect(gain);
    const node=source;node.onended=()=>{if(source===node&&!node.loop){source=null;kind=null;node.disconnect();}};
-   gain.gain.value=name==='jingle_clear'?.55:.22;began=ctx.currentTime;source.start(0,offset%source.loopEnd);
+   gain.gain.value=(name==='jingle_clear'?.55:.22)*volume;began=ctx.currentTime;source.start(0,offset%source.loopEnd);
   }catch(e){console.warn('音乐加载失败，可继续游戏',name,e);}
  }
  function suspend(){if(source&&source.loop)offset=(offset+ctx.currentTime-began)%source.loopEnd;++token;stop();}
- return {play,stop(){kind=null;++token;stop();},mute(value){muted=value;gain?.gain.setValueAtTime(value?0:(kind==='jingle_clear'?.55:.22),ctx.currentTime);if(value)suspend();else if(kind)play(kind,{resume:true});},pause(value){paused=value;if(value)suspend();else if(kind)play(kind,{resume:true});},visibility(){if(document.hidden)suspend();else if(kind)play(kind,{resume:true});}};
+ return {volume(value){volume=value;if(gain)gain.gain.value=(kind==='jingle_clear'?.55:.22)*volume;},play,stop(){kind=null;++token;stop();},mute(value){muted=value;gain?.gain.setValueAtTime(value?0:(kind==='jingle_clear'?.55:.22)*volume,ctx.currentTime);if(value)suspend();else if(kind)play(kind,{resume:true});},pause(value){paused=value;if(value)suspend();else if(kind)play(kind,{resume:true});},visibility(){if(document.hidden)suspend();else if(kind)play(kind,{resume:true});}};
 }
