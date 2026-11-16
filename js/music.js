@@ -1,7 +1,8 @@
 // Decode once and loop the PCM buffer in Web Audio (no HTMLAudio loop gap).
 export function createMusic(){
  let ctx,gain,source,kind=null,muted=false,paused=false,token=0,offset=0,began=0;
- const cache=new Map(),lengths={bgm_ch1:100,bgm_ch1_boss:80,jingle_clear:4};
+ const VERSION='C';
+ const cache=new Map(),lengths={bgm_ch1:90,bgm_ch1_boss:80,jingle_clear:4};
  function init(){if(!ctx){const C=globalThis.AudioContext||globalThis.webkitAudioContext;if(!C)return false;ctx=new C();gain=ctx.createGain();gain.connect(ctx.destination);}return true;}
  async function decode(bytes,name){
   // Respect MP4 gapless metadata even in decoders that return encoder padding.
@@ -22,7 +23,7 @@ export function createMusic(){
   const request=++token;stop();if(!resume)offset=0;kind=name;if(!name||muted||paused||document.hidden||!init())return;
   // Called synchronously during a user gesture before the first await.
   ctx.resume().catch(()=>{});
-  try{if(!cache.has(name))cache.set(name,fetch(`audio/${name}_B.mp4`).then(r=>{if(!r.ok)throw Error(r.status);return r.arrayBuffer();}).then(b=>decode(b,name)).catch(e=>{cache.delete(name);throw e;}));
+  try{if(!cache.has(name))cache.set(name,fetch(`audio/${name}_${VERSION}.mp4`).then(r=>{if(!r.ok)throw Error(r.status);return r.arrayBuffer();}).then(b=>decode(b,name)).catch(e=>{cache.delete(name);throw e;}));
    const buffer=await cache.get(name);if(request!==token||muted||paused||document.hidden)return;
    source=ctx.createBufferSource();source.buffer=buffer;source.loop=name!=='jingle_clear';source.loopStart=0;source.loopEnd=Math.min(buffer.duration,lengths[name]);source.connect(gain);
    const node=source;node.onended=()=>{if(source===node&&!node.loop){source=null;kind=null;node.disconnect();}};
