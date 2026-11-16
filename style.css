@@ -43,3 +43,12 @@ body{background-image:linear-gradient(#06140c26,#06140c55),url("img/bg_ch1.jpg")
 .card .btns{display:flex;gap:10px;padding:16px 18px 18px}
 .card .btns button{flex:1;height:48px;border-radius:10px;font-size:15px;background:#2a2620;border-color:#6b5a3a}
 .card .btns .go{flex:1.6;background:linear-gradient(#c0714a,#9a4b2c);border-color:#e2bf7d;font-size:19px;font-weight:700;letter-spacing:.3em;font-family:'Hiragino Mincho ProN',serif}
+
+/* Chapter two: layered URLs retain chapter-one artwork if an asset is missing. */
+body[data-chapter="2"]{background-image:linear-gradient(#120d0926,#120d0955),url("img/bg_ch2.jpg"),url("img/bg_ch1.jpg")}
+body[data-chapter="2"][data-boss="true"]{background-image:linear-gradient(#120d0926,#120d0955),url("img/bg_ch2_boss.jpg"),url("img/bg_ch1_boss.jpg")}
+body[data-chapter="2"] .card .art,body[data-chapter="2"] .introArt{background-image:var(--chapter-intro)}
+.tile.saito,.pc.saito{--crest:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%23d9ad4a' stroke='%233a2410' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M6 83Q12 60 28 58Q10 35 27 17Q48 0 49 28Q43 18 34 26Q24 39 44 47Q61 58 48 78Q30 68 6 83Z'/%3E%3Cpath d='M94 83Q88 60 72 58Q90 35 73 17Q52 0 51 28Q57 18 66 26Q76 39 56 47Q39 58 52 78Q70 68 94 83Z'/%3E%3Cpath d='M9 88Q30 77 50 87Q70 77 91 88L91 94Q70 85 50 94Q30 85 9 94Z'/%3E%3C/g%3E%3C/svg%3E")}
+.supply{flex:none;margin:0 auto;width:calc(100% - 24px);max-width:390px}.timber-status{text-align:center;font-size:12px;color:#ffdc8b;margin-bottom:3px}#preview{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;height:32px}.preview-tile{opacity:.6;border:1px solid #d9ad4a;border-radius:3px;background:#f3e3c8;overflow:hidden;text-align:center}.preview-tile img{height:100%;width:100%;object-fit:contain}
+
+body[data-chapter="2"] .tile.arriving{animation:timber-drop .35s ease-out}@keyframes timber-drop{from{translate:0 -50px;opacity:.2}to{translate:0 0;opacity:1}}@media(prefers-reduced-motion:reduce){body[data-chapter="2"] .tile.arriving{animation:none}}

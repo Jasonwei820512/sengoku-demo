@@ -48,3 +48,31 @@ export function shuffle(board,mask,falling=false,target=false,{budget=220,moves=
  if(falling&&!forceFallback){while(performance.now()-start<budget-25){const b=Array(56).fill(0),v=randomize(values,rng);occupied.forEach((i,j)=>b[i]=v[j]);const s=solve(b,mask,true,target,{timeout:Math.min(20,Math.max(1,budget-(performance.now()-start)-20)),moves});if(s.solution)return {board:b,solution:s.solution,fallback:false};}}
  return {...fallingBuild(occupied,labels,target,rng,falling),fallback:true};
 }
+
+// Construction supplies are column queues: a full column leaves its head waiting.
+export function supplyCount(queues){return queues.reduce((n,q)=>n+q.length,0);}
+export function supply(board,queues,mask){
+ const b=fall(board,mask),q=queues.map(c=>c.slice()),inserted=[];
+ for(let x=0;x<W;x++){const cell=mask.find(i=>i%W===x&&!b[i]);if(cell!==undefined&&q[x].length){b[cell]=q[x].shift();inserted.push(cell);}}
+ return {board:fall(b,mask),queues:q,inserted};
+}
+export function constructionWon(board,queues){return !board.some(Boolean)&&supplyCount(queues)===0;}
+export function solveConstruction(board,queues,mask,tempo=1,{timeout=3000,falling=true}={}){
+ const deadline=performance.now()+timeout,dead=new Set();let timedOut=false,nodes=0;
+ function dfs(b,q,n){nodes++;if(performance.now()>deadline){timedOut=true;return null;}
+ if(constructionWon(b,q))return [];
+ if(!b.some(Boolean)){const r=supply(b,q,mask);return dfs(r.board,r.queues,n);}
+ const key=b.join(',')+'|'+q.map(c=>c.join(',')).join(';')+'|'+n%tempo;if(dead.has(key))return null;
+ for(const [a,c] of pairs(b)){let next=remove(b,a,c,mask,falling),nextQ=q;if((n+1)%tempo===0||!next.some(Boolean)){const r=supply(next,q,mask);next=r.board;nextQ=r.queues;}const tail=dfs(next,nextQ,n+1);if(tail)return [[a,c],...tail];if(timedOut)return null;}dead.add(key);return null;
+ }return {solution:dfs(board,queues,0),timedOut,nodes};
+}
+// Supplies may temporarily leave odd counts on the board. Preserve every token;
+// make available pairs adjacent without touching any queued timber.
+export function shuffleConstruction(board,mask,rng=Math.random){
+ const counts=new Map();board.filter(Boolean).forEach(v=>counts.set(v,(counts.get(v)||0)+1));
+ const labels=[],singles=[];for(const [v,n]of counts){for(let k=0;k<Math.floor(n/2);k++)labels.push(v);if(n%2)singles.push(v);}
+ const cells=mask.slice().sort((a,b)=>Math.floor(b/W)-Math.floor(a/W)||a%W-b%W).slice(0,board.filter(Boolean).length),out=Array(56).fill(0);
+ const values=[...randomize(labels,rng).flatMap(v=>[v,v]),...singles];cells.forEach((i,n)=>out[i]=values[n]);
+ if(labels.length){const v=labels[0];let found=null;for(const a of cells){for(const c of cells){if(a<c&&path(out,a,c,true)){found=[a,c];break;}}if(found)break;}if(found){const rest=values.slice();rest.splice(rest.indexOf(v),1);rest.splice(rest.indexOf(v),1);for(const i of cells)out[i]=found.includes(i)?v:rest.shift();}}
+ return {board:out};
+}
