@@ -20,7 +20,7 @@
     {
       "id": 1,
       "formation": "長蛇",
-      "time": 180,
+      "time": 170,
       "falling": false,
       "target": false,
       "people": [
@@ -2271,7 +2271,7 @@
     {
       "id": 2,
       "formation": "方円",
-      "time": 150,
+      "time": 140,
       "falling": false,
       "target": false,
       "people": [
@@ -4515,7 +4515,7 @@
     {
       "id": 3,
       "formation": "鶴翼",
-      "time": 180,
+      "time": 170,
       "falling": false,
       "target": false,
       "people": [
@@ -7092,7 +7092,7 @@
     {
       "id": 4,
       "formation": "魚鱗",
-      "time": 180,
+      "time": 170,
       "falling": false,
       "target": false,
       "people": [
@@ -9833,7 +9833,7 @@
     {
       "id": 5,
       "formation": "雁行",
-      "time": 195,
+      "time": 185,
       "falling": false,
       "target": false,
       "people": [
@@ -12739,7 +12739,7 @@
     {
       "id": 6,
       "formation": "偃月",
-      "time": 210,
+      "time": 200,
       "falling": false,
       "target": false,
       "people": [
