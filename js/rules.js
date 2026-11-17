@@ -17,7 +17,7 @@ export function pairs(board){const out=[];for(let a=0;a<56;a++)if(board[a])for(l
 export function hint(board){for(let a=0;a<56;a++)if(board[a])for(let b=a+1;b<56;b++)if(board[a]===board[b]&&path(board,a,b))return [a,b];return null;}
 export function fall(board,mask){const out=board.slice();for(let x=0;x<W;x++){const cells=mask.filter(i=>i%W===x).sort((a,b)=>a-b),values=cells.map(i=>board[i]).filter(Boolean);cells.forEach((i,j)=>out[i]=values[j-(cells.length-values.length)]||0);}return out;}
 export function remove(board,a,b,mask,falling=false){if(!path(board,a,b))return null;const out=board.slice();out[a]=out[b]=0;return falling?fall(out,mask):out;}
-export function targetFailed(board,moves,target=false){return Boolean(target&&moves>=(target===true?11:target.beforePairs)&&board.includes(target===true?9:target.person));}
+export function targetFailed(board,moves,target=false){return Boolean(target&&moves>=(target===true?14:target.beforePairs)&&board.includes(target===true?9:target.person));}
 export function solve(board,mask,falling=false,target=false,{timeout=1000,moves=0}={}){
  const deadline=performance.now()+timeout,dead=new Set();let nodes=0,timedOut=false;
  function dfs(b,n){if(performance.now()>deadline){timedOut=true;return null;}nodes++;if(targetFailed(b,n,target))return null;if(!b.some(Boolean))return [];

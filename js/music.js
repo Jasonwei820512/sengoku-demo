@@ -32,5 +32,5 @@ export function createMusic(){
   }catch(e){console.warn('音乐加载失败，可继续游戏',name,e);}
  }
  function suspend(){if(source&&source.loop)offset=(offset+ctx.currentTime-began)%source.loopEnd;++token;stop();}
- return {volume(value){volume=value;if(gain)gain.gain.value=(kind==='jingle_clear'?.55:.22)*volume;},play,stop(){kind=null;++token;stop();},mute(value){muted=value;gain?.gain.setValueAtTime(value?0:(kind==='jingle_clear'?.55:.22)*volume,ctx.currentTime);if(value)suspend();else if(kind)play(kind,{resume:true});},pause(value){paused=value;if(value)suspend();else if(kind)play(kind,{resume:true});},visibility(){if(document.hidden)suspend();else if(kind)play(kind,{resume:true});}};
+ return {volume(value){volume=value;if(gain)gain.gain.value=muted?0:(kind==='jingle_clear'?.55:.22)*volume;},play,stop(){kind=null;++token;stop();},mute(value){if(muted===value)return;muted=value;gain?.gain.setValueAtTime(value?0:(kind==='jingle_clear'?.55:.22)*volume,ctx.currentTime);if(value)suspend();else if(kind)play(kind,{resume:true});},pause(value){paused=value;if(value)suspend();else if(kind)play(kind,{resume:true});},visibility(){if(document.hidden)suspend();else if(kind)play(kind,{resume:true});}};
 }

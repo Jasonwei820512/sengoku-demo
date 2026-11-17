@@ -20,6 +20,7 @@ export function solveFog(board,fog,queues,level,tempo=2,{timeout=1000,siege=leve
  const deadline=performance.now()+timeout,dead=new Set();let timedOut=false;
  function dfs(b,f,q,s,n){if(performance.now()>deadline){timedOut=true;return null;}if(duelFailed(b,level)||targetFailed([...b,...q.flat()],n,level.target))return null;if(!b.some(Boolean)&&!q.flat().length)return [];
  const key=b+'|'+f+'|'+q+'|'+JSON.stringify(s?.layers)+'|'+(level.target?n:n%tempo);if(dead.has(key))return null;
+ const visible=b.filter((v,i)=>v&&!f.includes(i));if(!q.flat().length&&f.length&&!visible.some(v=>visible.filter(x=>x===v).length>=2)){dead.add(key);return null;}
  const ps=fogPairs(b,f,s);if(level.target&&b.includes(level.target.person))ps.sort((a,c)=>(b[c[0]]===level.target.person)-(b[a[0]]===level.target.person));if(level.duel)ps.sort((a,c)=>(b[c[0]]===9)-(b[a[0]]===9));
  for(const [a,c]of ps){let r=fogRemove(b,f,a,c,level,s),nq=q,ns=s;if(level.construction&&((n+1)%tempo===0||!r.board.some(Boolean))){r=fogSupply(r.board,r.fog,q,level,s);nq=r.queues;}
  if(s&&advance&&(n+1)%tempo===0)ns=advanceSiege(r.board,s,level.siegeLimit);

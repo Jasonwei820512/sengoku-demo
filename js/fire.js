@@ -24,6 +24,7 @@ export function solveFire(board,queues,level,events,tempo=2,{timeout=1000,worst=
  const startIds=initialIds||board.map((v,i)=>v?i+1:0);let initial=initialFire?structuredClone(initialFire):newFire(events);if(worst){initial.locked=events.flatMap(e=>e.ids);initial.fired=events.map((_,i)=>i);}else if(!initialFire)initial=tickFire(initial,startIds,0).state;
  function dfs(b,ids,f,q,s,fire,n){if(performance.now()>deadline){timedOut=true;return null;}if(!b.some(Boolean)&&!q.flat().length)return [];
  const key=JSON.stringify([b,ids,f,q,s,fire,n]);if(dead.has(key))return null;
+ if(!q.flat().length&&!fire.active.length&&fire.fired.length===fire.events.length){const locked=b.filter((v,i)=>v&&fire.locked.includes(ids[i]));if(locked.some(v=>locked.filter(x=>x===v).length%2)){dead.add(key);return null;}}
  for(const [a,c]of firePairs(b,ids,fire,f,s)){let r=fogRemove(b,f,a,c,level,s),ni=moveIds(ids,a,c,level,s),nq=q,ns=s;
  const tick=worst?{state:fire,failed:false}:tickFire(fire,ni,n+1,level.id===10);if(tick.failed)continue;
  if(level.construction&&q.flat().length&&((n+1)%tempo===0||!r.board.some(Boolean))){const supplied=fogSupply(r.board,r.fog,q,level,s);const tmp=fogSupply(ni,[],q.map(col=>col.map(v=>100+v)),{...level,fog:undefined,left:true},s);ni=tmp.board;r=supplied;nq=r.queues;}
