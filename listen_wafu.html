@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第一章普通关 · 和风配乐试听</title>
+<style>
+body { font: 16px/1.7 system-ui; background: #f2eadb; color: #332e29; margin: 24px auto; padding: 0 20px; max-width: 1200px; }
+.versions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+section { background: #fffaf0; padding: 20px; border-radius: 12px; }
+audio { width: 100%; }
+h2 { margin-top: 0; }
+@media (max-width: 760px) { .versions { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<h1>第一章普通关 · 和风配乐试听</h1>
+<p>播放一首时会暂停其他版本。播放器按文件原音量循环播放。</p>
+<main class="versions">
+  <section><h2>C 版 · 箏</h2><p>当前游戏版 · 90 秒</p><audio controls preload="metadata" loop aria-label="C 版纯箏" src="audio/bgm_ch1_C.mp4"></audio></section>
+  <section><h2>D 版 · 箏＋尺八</h2><p>和风试作 · 112 秒</p><audio controls preload="metadata" loop aria-label="D 版箏与尺八" src="audio/bgm_ch1_D.mp4"></audio></section>
+  <section><h2>E 版 · 箏＋篠笛＋りん</h2><p>和风试作 · 112 秒</p><audio controls preload="metadata" loop aria-label="E 版箏、篠笛与钵铃" src="audio/bgm_ch1_E.mp4"></audio></section>
+</main>
+<script>
+const players = document.querySelectorAll('audio');
+for (const player of players) {
+  player.addEventListener('play', () => {
+    for (const other of players) {
+      if (other !== player) other.pause();
+    }
+  });
+}
+</script>
+</body>
+</html>
