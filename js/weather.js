@@ -1,7 +1,9 @@
+const demoPrefix=typeof location!=='undefined'&&new URLSearchParams(location.search).has('demo')?'demo:':'';
+const powerKey=demoPrefix+'sengoku-save-power';
 // Pure decoration: reads empty-cell geometry and never mutates the game board.
 let canvas,ctx,frame=0,last=0,particles=[],marks=[],enabled=true,options={},audio;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-try{enabled=localStorage.getItem('sengoku-save-power')!=='1';}catch{}
+try{enabled=localStorage.getItem(powerKey)!=='1';}catch{}
 export const WEATHER_TYPES=['rain-light','rain-heavy','storm','fireflies','mist','sakura','leaves','wind-dust','sun','rapeseed','smoke','embers','embers-smoke','mist-rain','maple','snow','sakura-sunset'];
 const rand=(a,b)=>a+Math.random()*(b-a);
 function visible(){return enabled&&options.battle&&options.effect&&!options.paused&&!reduced.matches&&!document.hidden;}
@@ -42,7 +44,7 @@ function draw(t){frame=0;if(!visible())return;frame=requestAnimationFrame(draw);
 function sync(){document.body.classList?.toggle('power-saving',!enabled);cancelAnimationFrame(frame);frame=0;if(canvas){canvas.hidden=!visible();ctx.clearRect(0,0,canvas.width,canvas.height);}sound();if(visible()){last=performance.now();frame=requestAnimationFrame(draw);}}
 export function weather(next={}){const changed=next.effect!==undefined&&next.effect!==options.effect;options={...options,...next};if(!next.battle&&next.battle!==undefined)options.effect=undefined;document.body.dataset.boss=String(!!(options.battle&&options.boss));if(!canvas){canvas=document.createElement('canvas');canvas.id='rain';canvas.setAttribute('aria-hidden','true');document.body.prepend(canvas);ctx=canvas.getContext('2d');resize();}if(changed){resize();}sync();}
 export function setWeather(value){enabled=value;sync();}
-export function powerButton(button){button.textContent=enabled?'省電: 切':'省電: 入';button.setAttribute('aria-pressed',String(!enabled));button.onclick=()=>{enabled=!enabled;try{localStorage.setItem('sengoku-save-power',enabled?'0':'1');}catch{}powerButton(button);sync();};}
+export function powerButton(button){button.textContent=enabled?'省電: 切':'省電: 入';button.setAttribute('aria-pressed',String(!enabled));button.onclick=()=>{enabled=!enabled;try{localStorage.setItem(powerKey,enabled?'0':'1');}catch{}powerButton(button);sync();};}
 window.addEventListener('resize',()=>{resize();sync();});document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);
 // A user gesture can unlock Web Audio after browser autoplay restrictions.
 window.addEventListener('pointerdown',()=>{if(visible())sound();});
