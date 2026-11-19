@@ -312,3 +312,4 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:16px}
 .strategy-result{margin:0;font-size:12px}
 body[data-skin] .tile.monomi{transform:translateY(-3px);box-shadow:inset 0 -3px #b88a52,0 0 0 2px #f2c24e,0 0 12px #f2c24e}
 .center.result:has(.result-actions),.large-text .center.result:has(.result-actions){height:auto;min-height:100dvh;overflow:visible}
+.strategy-badge:empty{display:none}
