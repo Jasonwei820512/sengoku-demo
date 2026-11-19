@@ -1,0 +1,149 @@
+{
+  "_note": "Translation of the Japanese draft. Traditional accounts remain attributed.",
+  "chapter": {
+    "title": "Battle of Okehazama",
+    "year": "Eiroku 3 (1560)",
+    "intro": "Imagawa Yoshimoto, the famed archer who rules Suruga, Totomi and Mikawa, marches into Owari with a vast army. In the pouring rain, twenty-seven-year-old Oda Nobunaga leads a small force straight to Imagawa’s headquarters. The ambush will change the course of the Sengoku era."
+  },
+  "formations": {
+    "長蛇": {
+      "name": "Long Serpent Formation",
+      "kana": "Choda",
+      "intro": "Troops march in a long single file. It suits narrow roads and valleys but leaves the flank exposed."
+    },
+    "方円": {
+      "name": "Circle Formation",
+      "kana": "Hoen",
+      "intro": "Troops form a defensive ring around their commander, ready for attacks from any direction."
+    },
+    "鶴翼": {
+      "name": "Crane's Wing Formation",
+      "kana": "Kakuyoku",
+      "intro": "Troops form a V like a crane's outstretched wings, enveloping attackers from both sides."
+    },
+    "魚鱗": {
+      "name": "Fish Scale Formation",
+      "kana": "Gyorin",
+      "intro": "Troops form layered triangles like fish scales, concentrating force to break the enemy line head-on."
+    },
+    "雁行": {
+      "name": "Wild Geese Formation",
+      "kana": "Ganko",
+      "intro": "Troops march diagonally like geese in flight, ready to answer threats on the flank."
+    },
+    "偃月": {
+      "name": "Crescent Moon Formation",
+      "kana": "Engetsu",
+      "intro": "Troops form a crescent and charge behind their commander. It lifts morale while exposing the commander to danger."
+    },
+    "総懸かり": {
+      "name": "Full Assault Formation",
+      "kana": "Sogakari",
+      "intro": "The whole army charges together, breaking formation for one decisive assault."
+    }
+  },
+  "people": {
+    "01_信长": {
+      "name": "Oda Nobunaga",
+      "short": "Nobunaga",
+      "kana": "Oda Nobunaga",
+      "epithet": "The Fool of Owari",
+      "line": "The young lord of Owari was called a fool for his outlandish dress. At Okehazama he made his name across Japan."
+    },
+    "02_浓姬": {
+      "name": "Nohime",
+      "short": "Nohime",
+      "kana": "Nohime",
+      "epithet": "Daughter of the Viper",
+      "line": "Daughter of Saito Dosan, the Viper of Mino, and Nobunaga's principal wife. Also called Kicho, much of her life remains a mystery."
+    },
+    "03_秀吉": {
+      "name": "Kinoshita Tokichiro (Toyotomi Hideyoshi)",
+      "short": "Hideyoshi",
+      "kana": "Kinoshita Tokichiro (Toyotomi Hideyoshi)",
+      "epithet": "Monkey",
+      "line": "An agile retainer whom Nobunaga called Monkey, he would later rule Japan as Toyotomi Hideyoshi."
+    },
+    "04_利家": {
+      "name": "Maeda Toshiie",
+      "short": "Toshiie",
+      "kana": "Maeda Toshiie",
+      "epithet": "Mataza of the Spear",
+      "line": "A flamboyant eccentric and master of the spear, he sought to win his way back into Nobunaga's service after his dismissal."
+    },
+    "05_胜家": {
+      "name": "Shibata Katsuie",
+      "short": "Katsuie",
+      "kana": "Shibata Katsuie",
+      "epithet": "Demon Shibata",
+      "line": "Feared as Demon Shibata, he was a fierce Oda commander who first served Nobunaga's younger brother Nobukatsu."
+    },
+    "06_长秀": {
+      "name": "Niwa Nagahide",
+      "short": "Nagahide",
+      "kana": "Niwa Nagahide",
+      "epithet": "Goroza the Rice",
+      "line": "Called Goroza the Rice, he was as indispensable as rice itself: a dependable Oda retainer who could handle anything."
+    },
+    "07_新介": {
+      "name": "Mori Shinsuke",
+      "short": "Shinsuke",
+      "kana": "Mori Shinsuke",
+      "epithet": "The Man Who Felled Yoshimoto",
+      "line": "One of Nobunaga's mounted guards. The Chronicle of Lord Nobunaga records that he took Imagawa Yoshimoto's head at Okehazama."
+    },
+    "08_阿市": {
+      "name": "Oichi",
+      "short": "Oichi",
+      "kana": "Oichi",
+      "epithet": "Great Beauty of the Sengoku Era",
+      "line": "Nobunaga's sister, said to be the most beautiful woman in Japan. She later married Azai Nagamasa and was swept up in the upheaval of the age."
+    },
+    "09_义元": {
+      "name": "Imagawa Yoshimoto",
+      "short": "Yoshimoto",
+      "kana": "Imagawa Yoshimoto",
+      "epithet": "Finest Bowman of the Eastern Sea Road",
+      "line": "Head of Suruga's distinguished Imagawa house. Often portrayed as a courtly figure, he was a capable daimyo who governed his domains well."
+    },
+    "10_元康": {
+      "name": "Matsudaira Motoyasu (Tokugawa Ieyasu)",
+      "short": "Motoyasu",
+      "kana": "Matsudaira Motoyasu (Tokugawa Ieyasu)",
+      "epithet": "Imagawa Hostage",
+      "line": "A nineteen-year-old warrior from Mikawa raised by the Imagawa. In golden armor he carried provisions into Odaka Castle. He later became Tokugawa Ieyasu."
+    },
+    "11_朝比奈": {
+      "name": "Asahina Yasutomo",
+      "short": "Asahina",
+      "kana": "Asahina Yasutomo",
+      "epithet": "Loyal Imagawa Retainer",
+      "line": "A young Imagawa retainer, he took Washizu Fort in the opening fighting at Okehazama and stayed loyal after Yoshimoto's death."
+    },
+    "12_直盛": {
+      "name": "Ii Naomori",
+      "short": "Naomori",
+      "kana": "Ii Naomori",
+      "epithet": "Lord of Iinoya",
+      "line": "Lord of Iinoya in Totomi and Naotora's father. He is said to have fought with the Imagawa and fallen at Okehazama."
+    },
+    "13_宗信": {
+      "name": "Matsui Munenobu",
+      "short": "Munenobu",
+      "kana": "Matsui Munenobu",
+      "epithet": "Lord of Futamata Castle",
+      "line": "Lord of Futamata Castle in Totomi and a veteran Imagawa commander, he died protecting Yoshimoto at Okehazama."
+    },
+    "14_直虎": {
+      "name": "Ii Naotora",
+      "short": "Naotora",
+      "kana": "Ii Naotora",
+      "epithet": "Lady of the Castle",
+      "line": "Naomori's only daughter took the religious name Jiro Hoshi. She would later lead the Ii house as its lady of the castle."
+    }
+  },
+  "rules": {
+    "falling": "When you match tiles, the tiles above them drop.",
+    "target10": "Decisive battle! Clear all four Imagawa Yoshimoto tiles by the end of match 14 or lose."
+  }
+}

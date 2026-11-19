@@ -1,0 +1,140 @@
+{
+  "_note": "Translation of the Japanese draft. Traditional accounts remain attributed.",
+  "chapter": {
+    "title": "Battle of Nagashino",
+    "year": "Tensho 3 (1575)",
+    "intro": "Oda and Tokugawa reinforcements march to relieve Nagashino Castle. Takeda cavalry close on the palisades at Shitaragahara. According to tradition, the gunners fire in three ranks. Think one move ahead and meet the oncoming tiles."
+  },
+  "formations": {
+    "長蛇": {
+      "name": "Long Serpent Formation",
+      "kana": "Choda",
+      "intro": "Troops march in a long single file. It suits narrow roads and valleys but leaves the flank exposed."
+    },
+    "方円": {
+      "name": "Circle Formation",
+      "kana": "Hoen",
+      "intro": "Troops form a defensive ring around their commander, ready for attacks from any direction."
+    },
+    "鶴翼": {
+      "name": "Crane's Wing Formation",
+      "kana": "Kakuyoku",
+      "intro": "Troops form a V like a crane's outstretched wings, enveloping attackers from both sides."
+    },
+    "魚鱗": {
+      "name": "Fish Scale Formation",
+      "kana": "Gyorin",
+      "intro": "Troops form layered triangles like fish scales, concentrating force to break the enemy line head-on."
+    },
+    "雁行": {
+      "name": "Wild Geese Formation",
+      "kana": "Ganko",
+      "intro": "Troops march diagonally like geese in flight, ready to answer threats on the flank."
+    },
+    "偃月": {
+      "name": "Crescent Moon Formation",
+      "kana": "Engetsu",
+      "intro": "Troops form a crescent and charge behind their commander. It lifts morale while exposing the commander to danger."
+    },
+    "総懸かり": {
+      "name": "Full Assault Formation",
+      "kana": "Sogakari",
+      "intro": "The whole army charges together, breaking formation for one decisive assault."
+    },
+    "鋒矢": {
+      "name": "Arrowhead Formation",
+      "kana": "Hoshi",
+      "intro": "An arrowhead concentrates force in the vanguard to pierce a single point in the enemy line."
+    },
+    "衡軛": {
+      "name": "Yoke Formation",
+      "kana": "Koyaku",
+      "intro": "Two staggered columns advance while supporting one another."
+    },
+    "車懸り": {
+      "name": "Wheel Formation",
+      "kana": "Kurumagakari",
+      "intro": "Tradition describes troops rotating like a wheel, with fresh units taking turns at the front."
+    }
+  },
+  "people": {
+    "01_信长": {
+      "name": "Oda Nobunaga",
+      "short": "Nobunaga",
+      "line": "He leads the Oda army to Shitaragahara alongside the Tokugawa."
+    },
+    "03_秀吉": {
+      "name": "Hashiba Hideyoshi",
+      "short": "Hideyoshi",
+      "line": "An Oda commander who took part in the Battle of Nagashino."
+    },
+    "10_元康": {
+      "name": "Tokugawa Ieyasu",
+      "short": "Ieyasu",
+      "line": "To relieve Nagashino Castle, he joins the Oda in meeting the Takeda army."
+    },
+    "04_忠勝": {
+      "name": "Honda Tadakatsu",
+      "short": "Tadakatsu",
+      "line": "A Tokugawa champion known for his antlered helmet."
+    },
+    "05_忠次": {
+      "name": "Sakai Tadatsugu",
+      "short": "Tadatsugu",
+      "line": "A senior Tokugawa retainer said to have attacked the fort at Tobigasu."
+    },
+    "06_信昌": {
+      "name": "Okudaira Nobumasa",
+      "short": "Nobumasa",
+      "line": "He defended Nagashino Castle and held out until reinforcements arrived."
+    },
+    "07_強右衛門": {
+      "name": "Torii Suneemon",
+      "short": "Suneemon",
+      "line": "He is said to have slipped out for reinforcements and encouraged his comrades on his return."
+    },
+    "08_亀姫": {
+      "name": "Kamehime",
+      "short": "Kamehime",
+      "line": "Ieyasu's daughter later married Nobumasa."
+    },
+    "09_築山殿": {
+      "name": "Tsukiyama-dono",
+      "short": "Tsukiyama",
+      "line": "Ieyasu's principal wife, who supported the Tokugawa house."
+    },
+    "10_勝頼": {
+      "name": "Takeda Katsuyori",
+      "short": "Katsuyori",
+      "line": "He led the Takeda army in besieging Nagashino Castle."
+    },
+    "06_昌景": {
+      "name": "Yamagata Masakage",
+      "short": "Masakage",
+      "line": "A renowned Takeda commander who led the red-armored troops and fell at Nagashino."
+    },
+    "04_信春": {
+      "name": "Baba Nobuharu",
+      "short": "Nobuharu",
+      "line": "A veteran who supported the Takeda and fell at Nagashino."
+    },
+    "07_昌豊": {
+      "name": "Naito Masatoyo",
+      "short": "Masatoyo",
+      "line": "A senior Takeda retainer killed at Nagashino."
+    },
+    "14_信綱": {
+      "name": "Sanada Nobutsuna",
+      "short": "Nobutsuna",
+      "line": "A Sanada commander killed at Nagashino alongside his brother Masateru."
+    }
+  },
+  "rules": {
+    "falling": "When you match tiles, the tiles above them drop.",
+    "construction": "The top row shows the next timber supply. Each column with room gets one tile. Timber waits above full columns. Clear the board and all timber to win. Retreat restores both, and the clock keeps running.",
+    "siege": "Barricades spread inward through empty spaces from the edge. Tiles stay in place. Breakout removes the innermost layer. If you have no matches and no Breakout uses left, you lose.",
+    "boss": "Three-Rank Volley: Clear all four tiles of the red-armored commander Yamagata Masakage by the end of match 11.",
+    "fog": "You cannot select fogged tiles or connect through them. Match a tile directly above, below or beside one to clear its fog. Redeploy shuffles only visible tiles. Retreat restores fog.",
+    "left": "Cavalry Charge: In matched rows only, tiles shift left toward the palisade. In battles with gravity, tiles drop first and then shift."
+  }
+}

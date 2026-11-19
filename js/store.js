@@ -4,6 +4,6 @@ const previewAll=typeof location!=='undefined'&&new URLSearchParams(location.sea
 const demoPrefix=typeof location!=='undefined'&&new URLSearchParams(location.search).has('demo')?'demo:':'';
 const KEY=demoPrefix+'sengoku-store-v1',RECEIPT=demoPrefix+'sengoku-mock-receipt';
 export function isUnlocked(){try{return DEMO||previewAll||localStorage.getItem(KEY)==='unlocked';}catch{return DEMO;}}
-export async function getPrice(){return DEMO?'体験版：全編解放済み':'価格はApp Storeで表示（Webテスト）';}
+export async function getPrice(translate=key=>key==='store.preview'?'Preview: Full game unlocked':'See the App Store for pricing (web test)'){return translate(DEMO?'store.preview':'store.webPrice');}
 export async function purchase(){localStorage.setItem(RECEIPT,'purchased');localStorage.setItem(KEY,'unlocked');return true;}
 export async function restore(){if(DEMO||localStorage.getItem(RECEIPT)==='purchased'){localStorage.setItem(KEY,'unlocked');return true;}return false;}

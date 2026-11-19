@@ -1,0 +1,147 @@
+{
+  "_note": "Translation of the Japanese draft. Traditional accounts remain attributed.",
+  "chapter": {
+    "title": "Retreat from Kanegasaki",
+    "year": "Genki 1 (1570)",
+    "intro": "As Oda troops march into Echizen, word comes that Azai Nagamasa has turned against them. Caught between two armies, Nobunaga orders a retreat. Legend says Oichi warned him with a bag of beans tied at both ends, while Hideyoshi and his comrades held the rear. Break through the encirclement and open the road to Kyoto."
+  },
+  "formations": {
+    "長蛇": {
+      "name": "Long Serpent Formation",
+      "kana": "Choda",
+      "intro": "Troops march in a long single file. It suits narrow roads and valleys but leaves the flank exposed."
+    },
+    "方円": {
+      "name": "Circle Formation",
+      "kana": "Hoen",
+      "intro": "Troops form a defensive ring around their commander, ready for attacks from any direction."
+    },
+    "鶴翼": {
+      "name": "Crane's Wing Formation",
+      "kana": "Kakuyoku",
+      "intro": "Troops form a V like a crane's outstretched wings, enveloping attackers from both sides."
+    },
+    "魚鱗": {
+      "name": "Fish Scale Formation",
+      "kana": "Gyorin",
+      "intro": "Troops form layered triangles like fish scales, concentrating force to break the enemy line head-on."
+    },
+    "雁行": {
+      "name": "Wild Geese Formation",
+      "kana": "Ganko",
+      "intro": "Troops march diagonally like geese in flight, ready to answer threats on the flank."
+    },
+    "偃月": {
+      "name": "Crescent Moon Formation",
+      "kana": "Engetsu",
+      "intro": "Troops form a crescent and charge behind their commander. It lifts morale while exposing the commander to danger."
+    },
+    "総懸かり": {
+      "name": "Full Assault Formation",
+      "kana": "Sogakari",
+      "intro": "The whole army charges together, breaking formation for one decisive assault."
+    },
+    "鋒矢": {
+      "name": "Arrowhead Formation",
+      "kana": "Hoshi",
+      "intro": "An arrowhead concentrates force in the vanguard to pierce a single point in the enemy line."
+    },
+    "衡軛": {
+      "name": "Yoke Formation",
+      "kana": "Koyaku",
+      "intro": "Two staggered columns advance while supporting one another."
+    }
+  },
+  "people": {
+    "03_秀吉": {
+      "name": "Kinoshita Tokichiro",
+      "short": "Hideyoshi",
+      "kana": "Kinoshita Tokichiro",
+      "line": "He is said to have volunteered to hold the rear so his comrades could withdraw."
+    },
+    "01_信长": {
+      "name": "Oda Nobunaga",
+      "short": "Nobunaga",
+      "kana": "Oda Nobunaga",
+      "line": "Learning of the danger, he withdrew to Kyoto through Kutsuki Valley."
+    },
+    "10_元康": {
+      "name": "Tokugawa Ieyasu",
+      "short": "Ieyasu",
+      "kana": "Tokugawa Ieyasu",
+      "line": "He is said to have helped the Oda in the fighting retreat."
+    },
+    "08_阿市": {
+      "name": "Oichi",
+      "short": "Oichi",
+      "kana": "Oichi",
+      "line": "Nagamasa's wife. Legend says she warned her brother with a bag of red beans."
+    },
+    "10_龍興": {
+      "name": "Saito Tatsuoki",
+      "short": "Tatsuoki",
+      "kana": "Saito Tatsuoki",
+      "line": "He is said to have turned to the Asakura after losing Mino."
+    },
+    "06_光秀": {
+      "name": "Akechi Mitsuhide",
+      "short": "Mitsuhide",
+      "kana": "Akechi Mitsuhide",
+      "line": "He is said to have helped hold the rear alongside Hideyoshi."
+    },
+    "07_久秀": {
+      "name": "Matsunaga Hisahide",
+      "short": "Hisahide",
+      "kana": "Matsunaga Hisahide",
+      "line": "He is said to have persuaded Mototsuna to let Nobunaga's party through."
+    },
+    "08_元綱": {
+      "name": "Kutsuki Mototsuna",
+      "short": "Mototsuna",
+      "kana": "Kutsuki Mototsuna",
+      "line": "Lord of Kutsuki Valley, said to have allowed Nobunaga's party to pass."
+    },
+    "09_熙子": {
+      "name": "Hiroko",
+      "short": "Hiroko",
+      "kana": "Hiroko",
+      "line": "Mitsuhide's wife, said to have sold her hair to fund his banquet."
+    },
+    "10_長政": {
+      "name": "Azai Nagamasa",
+      "short": "Nagamasa",
+      "kana": "Azai Nagamasa",
+      "line": "He held to his ties with the Asakura and turned against Nobunaga."
+    },
+    "11_久政": {
+      "name": "Azai Hisamasa",
+      "short": "Hisamasa",
+      "kana": "Azai Hisamasa",
+      "line": "Nagamasa's father, said to have valued the alliance with the Asakura."
+    },
+    "12_直経": {
+      "name": "Endo Naotsune",
+      "short": "Naotsune",
+      "kana": "Endo Naotsune",
+      "line": "An Azai commander said to have urged caution toward Nobunaga."
+    },
+    "13_義景": {
+      "name": "Asakura Yoshikage",
+      "short": "Yoshikage",
+      "kana": "Asakura Yoshikage",
+      "line": "Lord of Echizen, known for his love of culture."
+    },
+    "14_直隆": {
+      "name": "Magara Naotaka",
+      "short": "Naotaka",
+      "kana": "Magara Naotaka",
+      "line": "An Asakura champion said to have wielded a great blade."
+    }
+  },
+  "rules": {
+    "falling": "When you match tiles, the tiles above them drop.",
+    "construction": "The top row shows the next timber supply. Each column with room gets one tile. Timber waits above full columns. Clear the board and all timber to win. Retreat restores both, and the clock keeps running.",
+    "siege": "Barricades spread inward through empty spaces from the edge. Tiles stay in place. Breakout removes the innermost layer. If you have no matches and no Breakout uses left, you lose.",
+    "boss": "Rearguard: Clear all four Nagamasa tiles before the third barricade closes in."
+  }
+}

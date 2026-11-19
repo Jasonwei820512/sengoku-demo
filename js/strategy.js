@@ -1,11 +1,11 @@
 export const STRATEGY_POOL = Object.fromEntries([
-  ['hint', '献策', '消せる組を一つ教えてくれる', 30, 'hint'],
-  ['monomi', '物見', '選んだ武将の見えている牌を約3秒照らす', 25, 'monomi'],
-  ['shuffle', '陣替え', '残りの牌を並べ替える', 20, 'shuffle'],
-  ['toki', '鬨の声', '通常モードで残り時間を15秒延ばす', 15, 'toki'],
-  ['shinobi', '忍び', '同じ武将の牌を、つながらなくても二枚消す', 7, 'shinobi'],
-  ['sougakari', '総掛かり', '選んだ武将の鎖のない牌をすべて消す。霧の牌からは選べない', 3, 'sougakari'],
-].map(([id, name, help, weight, icon]) => [id, {name, help, weight, icon}]));
+  ['hint', 30, 'hint'],
+  ['monomi', 25, 'monomi'],
+  ['shuffle', 20, 'shuffle'],
+  ['toki', 15, 'toki'],
+  ['shinobi', 7, 'shinobi'],
+  ['sougakari', 3, 'sougakari'],
+].map(([id, weight, icon]) => [id, {weight, icon}]));
 
 export function drawStrategy(chapter, stage, relaxed, rng = Math.random) {
   if (chapter === 1 && stage === 1) return 'hint';

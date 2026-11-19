@@ -1,0 +1,141 @@
+{
+  "_note": "Translation of the Japanese draft. Traditional accounts remain attributed.",
+  "chapter": {
+    "title": "Honnoji Incident",
+    "year": "Tensho 10 (1582)",
+    "intro": "Akechi Mitsuhide marches on Kyoto. “The enemy is at Honnoji,” he is said to have declared. Nobunaga and Ranmaru fight on as the temple burns. Hideyoshi races back from Chugoku, and Ieyasu escapes through Iga. Match the burning pair before it locks."
+  },
+  "formations": {
+    "長蛇": {
+      "name": "Long Serpent Formation",
+      "kana": "Choda",
+      "intro": "Troops march in a long single file. It suits narrow roads and valleys but leaves the flank exposed."
+    },
+    "方円": {
+      "name": "Circle Formation",
+      "kana": "Hoen",
+      "intro": "Troops form a defensive ring around their commander, ready for attacks from any direction."
+    },
+    "鶴翼": {
+      "name": "Crane's Wing Formation",
+      "kana": "Kakuyoku",
+      "intro": "Troops form a V like a crane's outstretched wings, enveloping attackers from both sides."
+    },
+    "魚鱗": {
+      "name": "Fish Scale Formation",
+      "kana": "Gyorin",
+      "intro": "Troops form layered triangles like fish scales, concentrating force to break the enemy line head-on."
+    },
+    "雁行": {
+      "name": "Wild Geese Formation",
+      "kana": "Ganko",
+      "intro": "Troops march diagonally like geese in flight, ready to answer threats on the flank."
+    },
+    "偃月": {
+      "name": "Crescent Moon Formation",
+      "kana": "Engetsu",
+      "intro": "Troops form a crescent and charge behind their commander. It lifts morale while exposing the commander to danger."
+    },
+    "総懸かり": {
+      "name": "Full Assault Formation",
+      "kana": "Sogakari",
+      "intro": "The whole army charges together, breaking formation for one decisive assault."
+    },
+    "鋒矢": {
+      "name": "Arrowhead Formation",
+      "kana": "Hoshi",
+      "intro": "An arrowhead concentrates force in the vanguard to pierce a single point in the enemy line."
+    },
+    "衡軛": {
+      "name": "Yoke Formation",
+      "kana": "Koyaku",
+      "intro": "Two staggered columns advance while supporting one another."
+    },
+    "車懸り": {
+      "name": "Wheel Formation",
+      "kana": "Kurumagakari",
+      "intro": "Tradition describes troops rotating like a wheel, with fresh units taking turns at the front."
+    }
+  },
+  "people": {
+    "01_信长": {
+      "name": "Oda Nobunaga",
+      "short": "Nobunaga",
+      "bio": "He fought with a small retinue at Honnoji."
+    },
+    "02_浓姬": {
+      "name": "Nohime",
+      "short": "Nohime",
+      "bio": "Nobunaga's principal wife, said by some to have been at Honnoji."
+    },
+    "03_秀吉": {
+      "name": "Hashiba Hideyoshi",
+      "short": "Hideyoshi",
+      "bio": "He raced back from Bitchu on the great return from Chugoku."
+    },
+    "10_元康": {
+      "name": "Tokugawa Ieyasu",
+      "short": "Ieyasu",
+      "bio": "He returned to Mikawa through Iga."
+    },
+    "06_光秀": {
+      "name": "Akechi Mitsuhide",
+      "short": "Mitsuhide",
+      "bio": "He turned his army toward Kyoto."
+    },
+    "06_蘭丸": {
+      "name": "Mori Ranmaru",
+      "short": "Ranmaru",
+      "bio": "He served Nobunaga and fought at Honnoji."
+    },
+    "07_弥助": {
+      "name": "Yasuke",
+      "short": "Yasuke",
+      "bio": "Nobunaga's retainer from Africa."
+    },
+    "08_信忠": {
+      "name": "Oda Nobutada",
+      "short": "Nobutada",
+      "bio": "Nobunaga's eldest son and heir, who fought at Nijo Palace."
+    },
+    "09_貞勝": {
+      "name": "Murai Sadakatsu",
+      "short": "Sadakatsu",
+      "bio": "An elder retainer who oversaw Kyoto's administration."
+    },
+    "10_利三": {
+      "name": "Saito Toshimitsu",
+      "short": "Toshimitsu",
+      "bio": "A senior commander in the Akechi army."
+    },
+    "11_秀満": {
+      "name": "Akechi Hidemitsu",
+      "short": "Hidemitsu",
+      "bio": "A commander who supported Mitsuhide, remembered for the tale of his crossing a lake on horseback."
+    },
+    "12_藤孝": {
+      "name": "Hosokawa Fujitaka",
+      "short": "Fujitaka",
+      "bio": "He did not take up Mitsuhide's invitation."
+    },
+    "13_玉": {
+      "name": "Tama (Hosokawa Gracia)",
+      "short": "Tama",
+      "bio": "Mitsuhide's daughter, later baptized as Gracia."
+    },
+    "04_忠勝": {
+      "name": "Honda Tadakatsu",
+      "short": "Tadakatsu",
+      "bio": "He supported Ieyasu's escape through Iga."
+    }
+  },
+  "rules": {
+    "falling": "When you match tiles, the tiles above them drop.",
+    "construction": "The top row shows the next timber supply. Each column with room gets one tile. Timber waits above full columns. Clear the board and all timber to win. Retreat restores both, and the clock keeps running.",
+    "siege": "Barricades spread inward through empty spaces from the edge. Tiles stay in place. Breakout removes the innermost layer. If you have no matches and no Breakout uses left, you lose.",
+    "boss": "Save Nobunaga's two tiles from the flames. You lose if they lock.",
+    "fog": "You cannot select fogged tiles or connect through them. Match a tile directly above, below or beside one to clear its fog. Redeploy shuffles only visible tiles. Retreat restores fog.",
+    "left": "Only the row where tiles were matched shifts left. Other rows stay in place.",
+    "fire": "Two matching tiles catch fire. They lock when their move counter reaches zero, costing you 15 seconds. A locked pair can only match with each other. Clearing it earns no points and ends your combo."
+  }
+}

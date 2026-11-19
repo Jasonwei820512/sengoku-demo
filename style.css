@@ -65,20 +65,12 @@ body[data-chapter="3"]{background-image:linear-gradient(#160f1026,#160f1055),url
 body[data-chapter="3"][data-boss="true"]{background-image:linear-gradient(#160f1026,#160f1055),url("img/bg_ch3_boss.jpg"),url("img/bg_ch2_boss.jpg")}
 body[data-chapter="3"] .card .art,body[data-chapter="3"] .introArt{background-image:var(--chapter-intro)}
 body[data-chapter="3"] .controls button{font-size:11px}
-.fence{position:absolute;pointer-events:none;border:2px solid #ad8b59;background:repeating-linear-gradient(90deg,#624a31cc 0 5px,#231e1877 5px 10px);box-shadow:inset 0 10px #3d2c1f77;z-index:2}
-.outer-fence{position:absolute;pointer-events:none;inset:-9px;border:5px dashed #ba8b52;outline:1px solid #523b27;z-index:2}
 .tile.azai,.pc.azai{--crest:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d9ad4a%22%20stroke-width%3D%225%22%3E%3Cpath%20d%3D%22M%2050%206%20l14%208%20v16%20l-14%208%20l-14%20-8%20v-16%20Z%22%2F%3E%3Cpath%20d%3D%22M%2025%2049%20l14%208%20v16%20l-14%208%20l-14%20-8%20v-16%20Z%22%2F%3E%3Cpath%20d%3D%22M%2075%2049%20l14%208%20v16%20l-14%208%20l-14%20-8%20v-16%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")}
 .tile.asakura,.pc.asakura{--crest:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cg%20fill%3D%22%23d9ad4a%22%3E%3Cg%20transform%3D%22translate%2850%2023%29%22%3E%3Cpath%20d%3D%22M0%20-16%20C14%20-23%2022%20-10%2014%20-3%20C27%2010%2014%2024%203%2016%20C-10%2028%20-25%2014%20-16%203%20C-28%20-10%20-14%20-25%200%20-16Z%22%2F%3E%3Ccircle%20r%3D%225%22%20fill%3D%22%23fff6ea%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%2823%2071%29%22%3E%3Cpath%20d%3D%22M0%20-16%20C14%20-23%2022%20-10%2014%20-3%20C27%2010%2014%2024%203%2016%20C-10%2028%20-25%2014%20-16%203%20C-28%20-10%20-14%20-25%200%20-16Z%22%2F%3E%3Ccircle%20r%3D%225%22%20fill%3D%22%23fff6ea%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate%2877%2071%29%22%3E%3Cpath%20d%3D%22M0%20-16%20C14%20-23%2022%20-10%2014%20-3%20C27%2010%2014%2024%203%2016%20C-10%2028%20-25%2014%20-16%203%20C-28%20-10%20-14%20-25%200%20-16Z%22%2F%3E%3Ccircle%20r%3D%225%22%20fill%3D%22%23fff6ea%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E")}
 
 /* 川中島: missing illustrations fall back to chapter three. */
 body[data-chapter="4"]{background-image:linear-gradient(#16233035,#16233060),url("img/bg_ch4.jpg"),url("img/bg_ch3.jpg"),url("img/bg_ch2.jpg")}
 body[data-chapter="4"][data-boss="true"]{background-image:linear-gradient(#16233035,#16233060),url("img/bg_ch4_boss.jpg"),url("img/bg_ch3_boss.jpg"),url("img/bg_ch2_boss.jpg")}
-.fogged{background:radial-gradient(ellipse at 20% 40%,#91a5b84d,transparent 65%),radial-gradient(ellipse at 80% 70%,#9dafbf40,transparent 60%),linear-gradient(135deg,#263749,#485b6c 50%,#283747)!important}
-.tile.fogged::before{display:none}.tile.fogged img{display:none}
-.tile.revealing{animation:fog-reveal .36s ease-out}
-@keyframes fog-reveal{0%{transform:scaleX(.12);filter:brightness(.6)}100%{transform:scaleX(1);filter:brightness(1)}}
-@media(prefers-reduced-motion:reduce){.tile.revealing{animation:none}}
-body.power-saving .tile.revealing{animation:none}
 .tile.takeda,.pc.takeda{--crest:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cg%20fill%3D%27%23d9ad4a%27%3E%3Cpath%20d%3D%27M5%2050%2026%2031%2047%2050%2026%2069ZM29%2028%2050%209%2071%2028%2050%2047ZM53%2050%2074%2031%2095%2050%2074%2069ZM29%2072%2050%2053%2071%2072%2050%2091Z%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") }
 .tile.uesugi,.pc.uesugi{--crest:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23d9ad4a%27%20stroke-width%3D%278%27%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2750%27%20r%3D%2742%27%2F%3E%3Cpath%20d%3D%27M30%2078%2055%2022M42%2050Q16%2025%2022%2056Q26%2068%2042%2050M47%2043Q80%2021%2072%2050Q62%2062%2047%2043%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") }
 
@@ -92,21 +84,13 @@ body[data-chapter="6"]{background-image:linear-gradient(#22131a30,#27180e60),url
 body[data-chapter="6"][data-boss="true"]{background-image:linear-gradient(#22131a30,#27180e60),url("img/bg_ch6_boss.jpg"),url("img/bg_ch5_boss.jpg")}
 .tile.akechi,.pc.akechi{--crest:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cg%20fill%3D%22%23d9ad4a%22%3E%3Cpath%20d%3D%22M50%2052Q24%2027%2050%205Q76%2027%2050%2052Z%22%20transform%3D%22rotate%280%2050%2050%29%22/%3E%3Cpath%20d%3D%22M50%2052Q24%2027%2050%205Q76%2027%2050%2052Z%22%20transform%3D%22rotate%2872%2050%2050%29%22/%3E%3Cpath%20d%3D%22M50%2052Q24%2027%2050%205Q76%2027%2050%2052Z%22%20transform%3D%22rotate%28144%2050%2050%29%22/%3E%3Cpath%20d%3D%22M50%2052Q24%2027%2050%205Q76%2027%2050%2052Z%22%20transform%3D%22rotate%28216%2050%2050%29%22/%3E%3Cpath%20d%3D%22M50%2052Q24%2027%2050%205Q76%2027%2050%2052Z%22%20transform%3D%22rotate%28288%2050%2050%29%22/%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%229%22/%3E%3C/g%3E%3C/svg%3E")}
 .tile.hosokawa,.pc.hosokawa{--crest:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cg%20fill%3D%22%23d9ad4a%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2214%22/%3E%3Ccircle%20cx%3D%2284.0%22%20cy%3D%2250.0%22%20r%3D%2210%22/%3E%3Ccircle%20cx%3D%2274.0%22%20cy%3D%2274.0%22%20r%3D%2210%22/%3E%3Ccircle%20cx%3D%2250.0%22%20cy%3D%2284.0%22%20r%3D%2210%22/%3E%3Ccircle%20cx%3D%2226.0%22%20cy%3D%2274.0%22%20r%3D%2210%22/%3E%3Ccircle%20cx%3D%2216.0%22%20cy%3D%2250.0%22%20r%3D%2210%22/%3E%3Ccircle%20cx%3D%2226.0%22%20cy%3D%2226.0%22%20r%3D%2210%22/%3E%3Ccircle%20cx%3D%2250.0%22%20cy%3D%2216.0%22%20r%3D%2210%22/%3E%3Ccircle%20cx%3D%2274.0%22%20cy%3D%2226.0%22%20r%3D%2210%22/%3E%3C/g%3E%3C/svg%3E")}
-.tile.burning{border-color:#ff771f;box-shadow:0 0 5px 2px #f64a16,inset 0 0 7px #ff9a26;animation:fire-glow .7s ease-in-out infinite alternate}.fire-count{position:absolute;bottom:1px;left:0;right:0;z-index:3;font-size:9px;color:#fff1c7;background:#9e310be8;line-height:12px}.chains{position:absolute;inset:0;z-index:2;pointer-events:none}.chains i{position:absolute;left:4%;top:47%;width:92%;height:5px;border:1px solid #9a581c;border-radius:3px;background:repeating-linear-gradient(90deg,#edbf65 0 3px,#84501e 3px 5px,#d9983e 5px 8px);transform:rotate(42deg);box-shadow:0 1px 1px #54290d}.chains i+i{transform:rotate(-42deg)}@keyframes fire-glow{to{box-shadow:0 0 8px 3px #ff871f,inset 0 0 9px #ff561c}}.power-saving .tile.burning{animation:none}@media(prefers-reduced-motion:reduce){.tile.burning{animation:none}}
 
 .tile.toyotomi,.pc.toyotomi{--crest:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cg%20fill%3D%22%23d9ad4a%22%3E%3Cpath%20d%3D%22M50%2094Q8%2086%208%2057Q35%2049%2050%2072Q65%2049%2092%2057Q92%2086%2050%2094M50%2076Q26%2046%2050%2039Q74%2046%2050%2076%22/%3E%3Cpath%20d%3D%22M25%2060V10%22%20stroke%3D%22%23d9ad4a%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2210%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2216%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2222%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2228%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2234%22%20r%3D%225%22/%3E%3Cpath%20d%3D%22M50%2060V10%22%20stroke%3D%22%23d9ad4a%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2255%22%20cy%3D%2210%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%2216%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2255%22%20cy%3D%2222%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%2228%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2255%22%20cy%3D%2234%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%2240%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2255%22%20cy%3D%2246%22%20r%3D%225%22/%3E%3Cpath%20d%3D%22M75%2060V10%22%20stroke%3D%22%23d9ad4a%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2280%22%20cy%3D%2210%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2270%22%20cy%3D%2216%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2280%22%20cy%3D%2222%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2270%22%20cy%3D%2228%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%2280%22%20cy%3D%2234%22%20r%3D%225%22/%3E%3C/g%3E%3C/svg%3E")}
 body[data-chapter="7"]{background-image:linear-gradient(#22131a30,#27180e60),url("img/bg_ch7.jpg"),url("img/bg_ch6.jpg")}
 body[data-chapter="7"][data-boss="true"]{background-image:linear-gradient(#22131a30,#27180e60),url("img/bg_ch7_boss.jpg"),url("img/bg_ch6_boss.jpg")}
-.betrayal-count{position:absolute;bottom:3px;left:0;right:0;font-size:8px;color:#ffe4a0;background:#352119dc;pointer-events:none;z-index:2;white-space:nowrap}.betraying{animation:betray-flip .42s}@keyframes betray-flip{50%{transform:rotateY(90deg)}}
-.power-saving .betraying{animation:none}@media(prefers-reduced-motion:reduce){.betraying{animation:none}}
 
 body[data-chapter="8"]{background-image:linear-gradient(#30200e30,#291b1660),url("img/bg_ch8.jpg"),url("img/bg_ch7.jpg")}
 body[data-chapter="8"][data-boss="true"]{background-image:linear-gradient(#30200e30,#291b1660),url("img/bg_ch8_boss.jpg"),url("img/bg_ch7_boss.jpg")}
-.cannonball{position:absolute;width:13px;height:13px;background:#3b3029;border:2px solid #ffa359;border-radius:50%;z-index:9;pointer-events:none;animation:cannonfall .5s both;box-shadow:0 0 12px #ffbd68}
-@keyframes cannonfall{from{transform:translate(45px,-240px) scale(.4);opacity:0}70%{opacity:1}to{transform:translate(0,0);opacity:0}}
-.bombarded{animation:shake .3s .25s}
-.power-saving .bombarded{animation:none}.power-saving .cannonball{animation:none;opacity:.5}
-@media(prefers-reduced-motion:reduce){.bombarded,.cannonball{animation:none}}
 
 /* Task 41: collection surface; task 43 may unify the surrounding navigation. */
 .collection{background:#211e19f5;border:1px solid #8c754e;box-shadow:inset 0 0 24px #0006;gap:16px;color:#eee1bc}
@@ -136,7 +120,7 @@ body[data-chapter="8"][data-boss="true"]{background-image:linear-gradient(#30200
 .province-label{font:8px 'Hiragino Mincho ProN',serif;fill:#2f3526;stroke:#e7d7a3;stroke-width:1.3;paint-order:stroke;text-anchor:middle;pointer-events:none}.map-location .province-label{font-size:6px}.map-location .location-pin{r:4;stroke-width:1.5}.occupation .location-pin{r:5;stroke-width:1.5}
 .province{fill-rule:evenodd}
 /* Task 43: compact mobile shell and dark treasury panels. */
-.settings{background:#23211cf5;border:1px solid #806347;border-radius:18px;margin:12px auto;padding:22px;max-width:460px;height:auto;min-height:calc(100dvh - 24px);overflow-wrap:anywhere}.settings h2,.collection h2{color:#d88468;text-align:center}.setting-row{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 0;border-bottom:1px solid #80634755}.setting-row input[type=range]{width:60%;accent-color:#d6b778}.setting-row input[type=checkbox]{width:44px;height:28px;accent-color:#c8735a}.settings-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}.settings button{min-height:44px;position:relative}.deploy-tools{display:flex;justify-content:flex-end;gap:6px;padding:8px;background:#23211c}.deploy-tools button{min-height:44px;padding:6px 12px;position:relative}.gallery-art{width:100%;border-radius:10px}.locked-art{padding:55px 15px;background:#29251f;text-align:center;color:#baa782}.catalog-tabs{display:flex;flex-wrap:wrap}.catalog-tabs button{flex:1;min-height:44px}.tutorial-diagram{padding:18px;text-align:center;border:1px solid #967346;border-radius:12px;background:#171c19;color:#edcf86}.tutorial-diagram div{font-size:28px;line-height:1.4;white-space:pre}.splash{padding:0!important;height:100dvh!important;min-height:0!important;overflow:hidden}.splash-hit{border:0;border-radius:0;width:100%;height:100%;background:linear-gradient(transparent,#17150de6),url('img/ch1_intro.jpg') center/cover;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:0 15px 14dvh;gap:28px;color:#f8e6ae}.splash-hit span{font-family:serif;font-size:clamp(30px,9vw,44px);text-shadow:0 3px 9px #000}.splash-hit small{font-size:15px}.master-reward{color:#f3d68b;border:1px solid #d5aa59;padding:15px;border-radius:12px;animation:reward-glow 1s ease-out}@keyframes reward-glow{from{transform:scale(.9);opacity:.2}to{transform:scale(1);opacity:1}}button{touch-action:manipulation} .settings,.collection{max-width:min(460px,100%)}
+.settings{background:#23211cf5;border:1px solid #806347;border-radius:18px;margin:12px auto;padding:22px;max-width:460px;height:auto;min-height:calc(100dvh - 24px);overflow-wrap:anywhere}.settings h2,.collection h2{color:#d88468;text-align:center}.setting-row{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 0;border-bottom:1px solid #80634755}.setting-row input[type=range]{width:60%;accent-color:#d6b778}.setting-row input[type=checkbox]{width:44px;height:28px;accent-color:#c8735a}.settings-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}.settings button{min-height:44px;position:relative}.deploy-tools{display:flex;justify-content:flex-end;gap:6px;padding:8px;background:#23211c}.deploy-tools button{min-height:44px;padding:6px 12px;position:relative}.gallery-art{width:100%;border-radius:10px}.catalog-tabs{display:flex;flex-wrap:wrap}.catalog-tabs button{flex:1;min-height:44px}.tutorial-diagram{padding:18px;text-align:center;border:1px solid #967346;border-radius:12px;background:#171c19;color:#edcf86}.tutorial-diagram div{font-size:28px;line-height:1.4;white-space:pre}.splash{padding:0!important;height:100dvh!important;min-height:0!important;overflow:hidden}.splash-hit{border:0;border-radius:0;width:100%;height:100%;background:linear-gradient(transparent,#17150de6),url('img/ch1_intro.jpg') center/cover;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:0 15px 14dvh;gap:28px;color:#f8e6ae}.splash-hit span{font-family:serif;font-size:clamp(30px,9vw,44px);text-shadow:0 3px 9px #000}.splash-hit small{font-size:15px}.master-reward{color:#f3d68b;border:1px solid #d5aa59;padding:15px;border-radius:12px;animation:reward-glow 1s ease-out}@keyframes reward-glow{from{transform:scale(.9);opacity:.2}to{transform:scale(1);opacity:1}}button{touch-action:manipulation} .settings,.collection{max-width:min(460px,100%)}
 @media(max-height:700px){.deploy .card .art{max-height:145px}.deploy-tools{padding:4px}.settings{padding:16px}.setting-row{padding:12px 0}}
 .deploy .card{display:flex;flex-direction:column;max-height:calc(100dvh - 36px)}.deploy .card .body{overflow-y:auto;min-height:0;overscroll-behavior:contain}.deploy .card .art,.deploy .card .head,.deploy .card .btns,.deploy-tools{flex-shrink:0}.deploy .card .btns button{min-height:46px}.settings input,.settings select{min-height:44px}.settings .tutorial-diagram div{font-size:21px}.collection{background:#23211cf5;border:1px solid #806347;border-radius:16px}.collection .catalog-tabs button,.settings button{background:#27241e;border-color:#80634766}.collection .catalog-tabs button[aria-current=page]{color:#e5a17c;border-color:#aa8056}
 /* Task 44: title key visual, country inset and engraved victory seal. */
@@ -181,10 +165,6 @@ body[data-board=waves] .board{background:radial-gradient(circle at 50% 100%,tran
 .strategy-footer{flex:none;min-width:0}.controls{gap:6px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin}.strategy-title{height:17px;text-align:center;font:12px serif;letter-spacing:.3em;color:#e4c589}.controls button{position:relative;flex:0 0 64px;min-height:54px;padding:3px 2px 5px;display:flex;flex-direction:column;align-items:center;background:linear-gradient(#3f3529ed,#241e17ed);border-color:#ab8050}.strategy-icon{width:46px;height:46px;object-fit:contain;pointer-events:none}.controls .strategy-icon{width:30px;height:30px}.controls button span{font-size:11px;line-height:1.3}.strategy-badge{position:absolute;right:2px;top:1px;min-width:20px;height:20px;padding:1px 4px;border-radius:50%;background:#a83528;color:#ffe295;border:1px solid #ce9955;font:700 12px/16px sans-serif}.hud .toolbar>div{display:flex;gap:3px}.hud .toolbar button{display:grid;place-items:center;width:44px;height:44px;padding:0;flex:none}.hud .toolbar .strategy-icon{width:36px;height:36px}.hud .toolbar button[aria-pressed=true]{opacity:.55}.strategy-help .strategy-icon{vertical-align:middle;margin-right:8px}.strategy-help p{margin:6px 0}.victory-stars small{display:block;font:12px sans-serif;color:#e5d1aa}.large-text{font-size:19.2px}.large-text .settings p,.large-text .catalog-bio,.large-text .card .rule{font-size:16.8px}.large-text .pc .nm,.large-text .catalog-name,.large-text .card .form p{font-size:14.4px;white-space:normal}.large-text .hud h2{font-size:21.6px}.large-text .target,.large-text .status,.large-text .timber-status,.large-text .settlement,.large-text .center:has(.settlement) p{font-size:14.4px}.large-text .float-name{font-size:27.6px}.large-text .controls button span{font-size:13px}.large-text .center:has(.settlement){height:auto;min-height:100dvh;overflow:auto}.large-text .toolbar{flex-wrap:wrap}.large-text .hud .toolbar{flex-wrap:nowrap}.large-text .settings-buttons{grid-template-columns:1fr}.large-text h2{font-size:28.8px}
 
 /* Task 50: optional preview after the free chapter celebration. */
-.future-sketches{display:flex;gap:12px;width:100%;justify-content:center;margin:18px 0}
-.future-sketches figure{margin:0;flex:1;max-width:100px;color:#e5c582}
-.future-sketches svg{width:100%;display:block;background:#211c18;border:1px solid #9b7748;border-radius:12px;fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
-.future-sketches figcaption{font-size:13px;margin-top:8px;color:#eddfc9}
 .future-battles small{line-height:1.6;color:#c2b49e;margin-bottom:12px}
 
 /* Task 50: teach rule changes beside the affected portrait/row. */
@@ -193,9 +173,6 @@ body[data-board=waves] .board{background:radial-gradient(circle at 50% 100%,tran
 .boss-preview p{margin:0;font-size:12px;line-height:1.45}
 .boss-target{display:flex;align-items:center;justify-content:center;gap:7px;padding:4px;border:1px solid #e3c36e;border-radius:6px;background:#8a521b55;color:#fff1b6}
 .boss-target img{width:36px;height:36px;object-fit:cover;border:2px solid #e3c36e;border-radius:5px;flex:none}
-.cannon-preview,.squeeze-preview{position:absolute;pointer-events:none;z-index:8;border:2px dashed #ffe4a1;border-radius:5px;box-shadow:0 0 3px #201609,inset 0 0 2px #201609;background:transparent;box-sizing:border-box}
-.squeeze-preview{border:3px solid #ffe4a1;box-shadow:0 0 7px #f4d17d}
-.betrayal-count{white-space:normal;font-size:7px;line-height:1.05;max-width:100%;padding:1px 2px}
 .mode-explanation{font-size:12px;line-height:1.6;text-align:left;margin:0 0 12px;color:#e5d5b4}
 .province-map{--occupation-color:#c58d37}.province-map.takeda{--occupation-color:#bf5a48}.province-map.akechi{--occupation-color:#9d82bb}.province-map.tokugawa{--occupation-color:#668eae}.province-map.toyotomi{--occupation-color:#bd9840}
 .province.chapter-border,.province.province-highlight,.province.province-flash,.province.province-glint,.province.battlefield-pulse{
@@ -313,3 +290,270 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:16px}
 body[data-skin] .tile.monomi{transform:translateY(-3px);box-shadow:inset 0 -3px #b88a52,0 0 0 2px #f2c24e,0 0 12px #f2c24e}
 .center.result:has(.result-actions),.large-text .center.result:has(.result-actions){height:auto;min-height:100dvh;overflow:visible}
 .strategy-badge:empty{display:none}
+
+/* Locale-aware font selection and room for longer labels. */
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/cormorant.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+html[lang="zh-Hant"] body,
+html[lang="zh-Hans"] body,
+html:is([lang="zh-Hant"], [lang="zh-Hans"]) :is(.splash-title, .card .form b, .card .btns .go, .pc .nm) {
+  font-family: -apple-system, system-ui, sans-serif;
+}
+button:is(.primary, .level),
+.btn-row > button,
+.catalog-tabs button,
+.setting-row button {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.center.result:has(.result-actions) {
+  overflow-y: auto;
+}
+html[lang="en"] .tile .fire-count {
+  font-size: 7px;
+}
+
+
+/* Painted rule effects */
+.fence,.outer-fence,.squeeze-preview,.squeeze-dust,.cannon-preview,.cannonball,.cannon-impact {
+  position:absolute;
+  pointer-events:none;
+}
+.fence,.outer-fence {z-index:3}
+.fence {
+  background:url("img/fx/fence.png") center bottom / 100% 52% no-repeat;
+  opacity:.78;
+}
+.outer-fence {inset:-11px}
+.outer-fence i {
+  position:absolute;
+  background:url("img/fx/fence.png") left center / 20px 10px repeat-x;
+}
+.outer-fence i:nth-child(-n+2) {left:3px;right:3px;height:10px}
+.outer-fence i:nth-child(1) {top:0;--fence-entry:translateY(-8px)}
+.outer-fence i:nth-child(2) {bottom:0;--fence-entry:translateY(8px)}
+.outer-fence i:nth-child(n+3) {
+  top:8px;bottom:8px;width:10px;
+  background-image:url("img/fx/fence-side.png");
+  background-size:10px 20px;background-repeat:repeat-y;
+}
+.outer-fence i:nth-child(3) {left:0;--fence-entry:translateX(-8px)}
+.outer-fence i:nth-child(4) {right:0;--fence-entry:translateX(8px);background-image:url("img/fx/fence-side-right.png")}
+.fence-rising i {animation:fence-rise .3s ease-out}
+@keyframes fence-rise {from {transform:var(--fence-entry);opacity:.45}}
+
+.fogged {position:relative;overflow:hidden;background:linear-gradient(145deg,#fff5de,#c6ad8e)!important}
+.tile.fogged {position:absolute}
+.tile.fogged::before {display:none}
+.tile.fogged img {display:none}
+.fogged::after,.tile.revealing::after,.tile.revealing::before {
+  content:"";position:absolute;pointer-events:none;inset:0;z-index:2;
+  background: url("img/fx/fog.png") center / 113% 100% no-repeat;
+}
+.fogged::after {animation:mist-drift 10s ease-in-out infinite alternate}
+.tile.revealing::after,.tile.revealing::before {
+  display:block;width:auto;height:auto;filter:none;
+  animation:mist-part .4s ease-out both;
+}
+.tile.revealing::before {clip-path:inset(0 50% 0 0);--mist-direction:-1}
+.tile.revealing::after {clip-path:inset(0 0 0 50%);--mist-direction:1}
+@keyframes mist-drift {to {transform:translateX(9%) scale(1.12);opacity:.79}}
+@keyframes mist-part {
+  from {background-color:#f4e6cd}
+  to {transform:translateX(calc(65% * var(--mist-direction)));opacity:0}
+}
+
+.squeeze-preview,.squeeze-dust {left:0;z-index:8}
+.squeeze-preview::before,.squeeze-dust::before {
+  content:"";position:absolute;inset:auto 8px 0 3px;height:6px;
+  background:radial-gradient(ellipse at center,#e4ae63b0 0%,#a6672b75 42%,transparent 72%);
+}
+.squeeze-preview::after {
+  content:"";position:absolute;right:-10px;bottom:0;width:30px;height:30px;
+  background:url("img/fx/cavalry.png") center / contain no-repeat;
+  filter:drop-shadow(0 1px 2px #261006);
+}
+.squeeze-dust::before {height:12px;animation:dust-sweep .42s ease-out both}
+@keyframes dust-sweep {from {transform:translateX(15%) scaleX(.7)} to {transform:translateX(-20%) scaleX(1.2);opacity:0}}
+
+body .tile.burning {border-color:#452517;box-shadow:inset 0 0 3px #38130a,0 2px 3px #1e0e08}
+.tile.burning::after {
+  content:"";position:absolute;inset:auto 0 0;height:32%;pointer-events:none;z-index:2;
+  background:url("img/fx/flame.png") center bottom / 100% 100% no-repeat;
+  transform-origin:bottom;animation:flame-flicker .72s ease-in-out infinite alternate;
+}
+@keyframes flame-flicker {50% {transform:scaleY(.82);opacity:.83} to {transform:scaleY(1.09)}}
+.fire-count {
+  position:absolute;bottom:1px;left:1px;z-index:3;padding:0 2px;border-radius:3px;
+  font-size:9px;font-weight:bold;line-height:12px;color:#fff6d8;background:#4a1d0af2;
+}
+.chains {position:absolute;inset:0;z-index:2;pointer-events:none}
+.board > .chain-releasing {z-index:8}
+.chains i,.chains b {position:absolute;display:block}
+.chains i {inset:0;background:url("img/fx/chain.png") center / 100% 100% no-repeat;opacity:.87}
+.chains b {
+  width:24%;height:25%;left:38%;top:58%;
+  background:url("img/fx/padlock.png") center / contain no-repeat;
+}
+.chain-releasing i {animation:links-drop .3s ease-in both}
+.chain-releasing b {animation:lock-spring .3s ease-out both}
+@keyframes links-drop {to {transform:translateY(70%) rotate(13deg);opacity:0}}
+@keyframes lock-spring {45% {transform:translate(20%,-85%) rotate(25deg)} to {transform:translate(60%,90%) rotate(40deg);opacity:0}}
+
+.betrayal-count {
+  position:absolute;right:0;top:0;width:23px;height:20px;display:grid;place-items:center;
+  pointer-events:none;z-index:3;color:#fff8df;font-size:15px;font-weight:800;line-height:1;
+  text-shadow:0 1px 2px #160f07,0 0 2px #160f07;
+  isolation:isolate;
+}
+.betrayal-count::before {
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:url("img/fx/flag.png") center / 100% 100% no-repeat;
+  filter:var(--flag-color,sepia(1) saturate(4) hue-rotate(335deg) brightness(.77));
+}
+.flag-tokugawa::before {--flag-color:sepia(1) saturate(4) hue-rotate(128deg) brightness(.62)}
+.flag-toyotomi::before {--flag-color:sepia(1) saturate(4) brightness(.78)}
+.flag-converted::before {filter:var(--flag-color) brightness(1.3)}
+.betraying {animation:betray-flip .42s ease-in-out}
+@keyframes betray-flip {50% {transform:rotateY(90deg)}}
+.name-tip {width:max-content;max-width:min(45vw,220px);overflow-wrap:anywhere;text-align:center}
+
+.cannon-preview {
+  z-index:8;
+
+  opacity:.65;
+}
+.cannon-preview::after {
+  content:"";position:absolute;inset:2%;transform:rotate(45deg);
+  background:url("img/fx/reticle.png") center / 100% 100% no-repeat;
+}
+.cannon-imminent {animation:reticle-pulse .55s ease-in-out infinite alternate}
+@keyframes reticle-pulse {to {opacity:.43}}
+.cannonball,.cannon-impact {z-index:9;transform:translate(-50%,-50%)}
+.cannonball {
+  width:60px;height:60px;
+  background:url("img/fx/cannonball.png") center / contain no-repeat;
+  animation:painted-cannonfall .4s ease-in both;
+}
+@keyframes painted-cannonfall {
+  from {transform:translate(-125%,-320%) scale(.45);opacity:.3}
+  85% {opacity:1}
+  to {transform:translate(-73%,-73%);opacity:0}
+}
+.cannon-impact {
+  width:77px;height:58px;
+  background:url("img/fx/impact.png") center / contain no-repeat;
+  animation:impact-bloom .25s .35s ease-out both;
+}
+@keyframes impact-bloom {
+  from {opacity:0;transform:translate(-50%,-50%) scale(.4)}
+  35% {opacity:.9}
+  to {opacity:0;transform:translate(-50%,-50%) scale(1.2)}
+}
+
+.locked-art {
+  display:grid;justify-items:center;gap:10px;padding:18px 12px;
+  border:1px solid #947044;border-radius:10px;color:#e6c99a;
+  background:radial-gradient(ellipse at 50% 36%,#5b432e,#29211a 78%);text-align:center;
+}
+.locked-art img {width:min(52%,160px);height:100px;object-fit:contain}
+.future-sketches {
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 6px;
+  width:100%;max-width:420px;margin:8px 0;
+}
+.future-sketches figure {margin:0;min-width:0}
+.future-sketches img {
+  display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;
+  border:1px solid #b99251;border-radius:7px;
+}
+.future-sketches figcaption {display:grid;gap:2px;font-size:11px;line-height:1.2;margin-top:4px;overflow-wrap:anywhere}
+.future-sketches figcaption span {color:#e5c582}
+
+.power-saving :is(.chain-releasing i,.chain-releasing b,.betraying,.cannon-imminent,.cannonball,.cannon-impact) {animation:none}
+.power-saving :is(.tile.revealing,.tile.burning,.fogged,.squeeze-dust)::after,
+.power-saving :is(.tile.revealing,.squeeze-dust)::before,
+.power-saving .fence-rising i {animation:none}
+.power-saving .tile.revealing::before,.power-saving .tile.revealing::after,
+.power-saving .chain-releasing,.power-saving .cannonball {visibility:hidden}
+@media(prefers-reduced-motion:reduce) {
+  .fence-rising i,.fogged::after,.tile.revealing::after,.tile.revealing::before,
+  .squeeze-dust::before,.tile.burning::after,.chain-releasing i,.chain-releasing b,
+  .betraying,.cannon-imminent,.cannonball,.cannon-impact {animation:none}
+  .tile.revealing::before,.tile.revealing::after,.chain-releasing,.cannonball {visibility:hidden}
+}
+
+/* English typography. Keep compact labels whole and let longer copy wrap at spaces. */
+html[lang="en"] body {
+  --english-copy: "Iowan Old Style", Palatino, Georgia, serif;
+  --english-display: "Cormorant Garamond", var(--english-copy);
+  font-family: var(--english-copy);
+}
+html[lang="en"] body *,
+html[lang="en"] :is(.pause-dialog .btn-row > button, .controls button span) {
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: manual;
+}
+html[lang="en"] :is(.card .btns .go, .province-label, .strategy-title,
+  .strategy-badge, .victory-stars small, .collection section h3 small, input, select) {
+  font-family: var(--english-copy);
+}
+html[lang="en"] button[lang]:not(:lang(en)) {
+  font-family: -apple-system, system-ui, sans-serif;
+}
+html[lang="en"] :is(h1, h2, h3, .splash-hit .splash-title, .card .form b,
+  .pc .nm, .catalog-name, .float-name, .name-tip, .sea-stamp) {
+  font-family: var(--english-display);
+  font-weight: 700;
+}
+html[lang="en"] .splash-hit .splash-title {
+  font-size: clamp(24px, 7.6vw, 44px);
+  letter-spacing: .025em;
+}
+html[lang="en"] .card .art .cap { padding-inline: 8px; }
+html[lang="en"] .card .cap h1 { letter-spacing: .025em; }
+html[lang="en"] .card .btns .go { letter-spacing: .08em; }
+html[lang="en"] .battle-position { min-width: 0; white-space: normal; }
+html[lang="en"] .cast .pc {
+  width: calc((100% - 12px) / 3);
+  max-width: 110px;
+}
+html[lang="en"] .cast .nm {
+  padding-inline: 4px;
+  font-size: 17px;
+  line-height: 1.15;
+  white-space: normal;
+}
+html[lang="en"] .paged .catalog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+html[lang="en"] .paged .catalog-name { font-size: 17px; line-height: 1.15; min-height: 2.3em; }
+html[lang="en"] .paged .catalog-detail h1 { font-size: 17pt; }
+html[lang="en"] .large-text :is(.cast .nm, .paged .catalog-name) { font-size: 20px; }
+html[lang="en"] .large-text .paged .catalog-detail h1 { font-size: 20pt; }
+html[lang="en"] .strategy-note {
+  width: max-content;
+  max-width: calc(100% - 16px);
+  white-space: normal;
+}
+html[lang="en"] .strategy-note .strategy-icon { flex: none; }
+html[lang="en"] .sea-stamp { font-size: clamp(15px, 6cqh, 22px); }
+html[lang="en"] .controls button span { max-width: 100%; }
+html[lang="en"] .paged .catalog-tabs button { white-space: normal; }
+html[lang="en"] .tutorial-diagram div { white-space: pre-wrap; }
+html[lang="en"] :is(.map-chapters, .future-sketches) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+html[lang="en"] .large-text .paged .catalog-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+html[lang="en"] .name-tip { font-size: 17px; }
+html[lang="en"] .large-text .name-tip { font-size: 20px; }
+html[lang="en"] .splash-hit small {
+  top: calc(var(--splash-title-top) + clamp(28px, 8.8vw, 51px) + 12px);
+}

@@ -1,0 +1,128 @@
+{
+  "_note": "Translation of the Japanese draft. Traditional accounts remain attributed.",
+  "chapter": {
+    "title": "Battle of Sekigahara",
+    "year": "Keicho 5 (1600)",
+    "intro": "Tokugawa Ieyasu’s Eastern Army meets Ishida Mitsunari’s Western Army at Sekigahara. From Mount Matsuo, Kobayakawa Hideaki strikes the Western Army and turns the tide. Some accounts say Ieyasu fired on him to force his hand. Match Hideaki’s tiles before he defects, or wait for them to become Ieyasu’s."
+  },
+  "formations": {
+    "長蛇": {
+      "name": "Long Serpent Formation",
+      "kana": "Choda",
+      "intro": "Troops march in a long single file. It suits narrow roads and valleys but leaves the flank exposed."
+    },
+    "方円": {
+      "name": "Circle Formation",
+      "kana": "Hoen",
+      "intro": "Troops form a defensive ring around their commander, ready for attacks from any direction."
+    },
+    "鶴翼": {
+      "name": "Crane's Wing Formation",
+      "kana": "Kakuyoku",
+      "intro": "Troops form a V like a crane's outstretched wings, enveloping attackers from both sides."
+    },
+    "魚鱗": {
+      "name": "Fish Scale Formation",
+      "kana": "Gyorin",
+      "intro": "Troops form layered triangles like fish scales, concentrating force to break the enemy line head-on."
+    },
+    "雁行": {
+      "name": "Wild Geese Formation",
+      "kana": "Ganko",
+      "intro": "Troops march diagonally like geese in flight, ready to answer threats on the flank."
+    },
+    "偃月": {
+      "name": "Crescent Moon Formation",
+      "kana": "Engetsu",
+      "intro": "Troops form a crescent and charge behind their commander. It lifts morale while exposing the commander to danger."
+    },
+    "総懸かり": {
+      "name": "Full Assault Formation",
+      "kana": "Sogakari",
+      "intro": "The whole army charges together, breaking formation for one decisive assault."
+    },
+    "鋒矢": {
+      "name": "Arrowhead Formation",
+      "kana": "Hoshi",
+      "intro": "An arrowhead concentrates force in the vanguard to pierce a single point in the enemy line."
+    },
+    "衡軛": {
+      "name": "Yoke Formation",
+      "kana": "Koyaku",
+      "intro": "Two staggered columns advance while supporting one another."
+    },
+    "車懸り": {
+      "name": "Wheel Formation",
+      "kana": "Kurumagakari",
+      "intro": "Tradition describes troops rotating like a wheel, with fresh units taking turns at the front."
+    }
+  },
+  "people": {
+    "10_元康": {
+      "short": "Ieyasu",
+      "name": "Tokugawa Ieyasu"
+    },
+    "04_忠勝": {
+      "short": "Tadakatsu",
+      "name": "Honda Tadakatsu"
+    },
+    "03_直政": {
+      "short": "Naomasa",
+      "name": "Ii Naomasa"
+    },
+    "04_正則": {
+      "short": "Masanori",
+      "name": "Fukushima Masanori"
+    },
+    "05_長政": {
+      "short": "Nagamasa",
+      "name": "Kuroda Nagamasa"
+    },
+    "06_忠興": {
+      "short": "Tadaoki",
+      "name": "Hosokawa Tadaoki"
+    },
+    "08_ねね": {
+      "short": "Nene",
+      "name": "Nene (Kita no Mandokoro)"
+    },
+    "08_三成": {
+      "short": "Mitsunari",
+      "name": "Ishida Mitsunari"
+    },
+    "09_吉継": {
+      "short": "Yoshitsugu",
+      "name": "Otani Yoshitsugu"
+    },
+    "10_左近": {
+      "short": "Sakon",
+      "name": "Shima Sakon"
+    },
+    "11_秀家": {
+      "short": "Hideie",
+      "name": "Ukita Hideie"
+    },
+    "12_義弘": {
+      "short": "Yoshihiro",
+      "name": "Shimazu Yoshihiro"
+    },
+    "13_秀秋": {
+      "short": "Hideaki",
+      "name": "Kobayakawa Hideaki"
+    },
+    "14_淀殿": {
+      "short": "Yodo-dono",
+      "name": "Yodo-dono"
+    }
+  },
+  "rules": {
+    "falling": "When you match tiles, the tiles above them drop.",
+    "construction": "The top row shows the next timber supply. Each column with room gets one tile. Timber waits above full columns. Clear the board and all timber to win. Retreat restores both, and the clock keeps running.",
+    "siege": "Barricades spread inward through empty spaces from the edge. Tiles stay in place. Breakout removes the innermost layer. If you have no matches and no Breakout uses left, you lose.",
+    "boss": "Clear all four Mitsunari tiles by the end of match 16.",
+    "fog": "You cannot select fogged tiles or connect through them. Match a tile directly above, below or beside one to clear its fog. Redeploy shuffles only visible tiles. Retreat restores fog.",
+    "left": "Only the row where tiles were matched shifts left. Other rows stay in place.",
+    "fire": "Two matching tiles catch fire. They lock when their move counter reaches zero, costing you 15 seconds. A locked pair can only match with each other. Clearing it earns no points and ends your combo.",
+    "betrayal": "Each match reduces Kobayakawa Hideaki's defection counter by one. At zero, all remaining Hideaki tiles become Ieyasu tiles."
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "_note": "Translation of the Japanese draft. Traditional accounts remain attributed.",
+  "chapter": {
+    "title": "Battle of Kawanakajima",
+    "year": "Eiroku 4 (1561)",
+    "intro": "Fog blankets the Chikuma River as Takeda Shingen and Uesugi Kenshin face one another. According to legend, Kenshin descended from the mountains by night and closed in on Takeda's headquarters. Find your allies in the fog and fight your way through Kawanakajima."
+  },
+  "formations": {
+    "長蛇": {
+      "name": "Long Serpent Formation",
+      "kana": "Choda",
+      "intro": "Troops march in a long single file. It suits narrow roads and valleys but leaves the flank exposed."
+    },
+    "方円": {
+      "name": "Circle Formation",
+      "kana": "Hoen",
+      "intro": "Troops form a defensive ring around their commander, ready for attacks from any direction."
+    },
+    "鶴翼": {
+      "name": "Crane's Wing Formation",
+      "kana": "Kakuyoku",
+      "intro": "Troops form a V like a crane's outstretched wings, enveloping attackers from both sides."
+    },
+    "魚鱗": {
+      "name": "Fish Scale Formation",
+      "kana": "Gyorin",
+      "intro": "Troops form layered triangles like fish scales, concentrating force to break the enemy line head-on."
+    },
+    "雁行": {
+      "name": "Wild Geese Formation",
+      "kana": "Ganko",
+      "intro": "Troops march diagonally like geese in flight, ready to answer threats on the flank."
+    },
+    "偃月": {
+      "name": "Crescent Moon Formation",
+      "kana": "Engetsu",
+      "intro": "Troops form a crescent and charge behind their commander. It lifts morale while exposing the commander to danger."
+    },
+    "総懸かり": {
+      "name": "Full Assault Formation",
+      "kana": "Sogakari",
+      "intro": "The whole army charges together, breaking formation for one decisive assault."
+    },
+    "鋒矢": {
+      "name": "Arrowhead Formation",
+      "kana": "Hoshi",
+      "intro": "An arrowhead concentrates force in the vanguard to pierce a single point in the enemy line."
+    },
+    "衡軛": {
+      "name": "Yoke Formation",
+      "kana": "Koyaku",
+      "intro": "Two staggered columns advance while supporting one another."
+    },
+    "車懸り": {
+      "name": "Wheel Formation",
+      "kana": "Kurumagakari",
+      "intro": "Tradition describes troops rotating like a wheel, with fresh units taking turns at the front."
+    }
+  },
+  "people": {
+    "01_信玄": {
+      "name": "Takeda Shingen",
+      "short": "Shingen",
+      "line": "Daimyo of Kai, famed for his Wind, Forest, Fire and Mountain banner."
+    },
+    "02_勘助": {
+      "name": "Yamamoto Kansuke",
+      "short": "Kansuke",
+      "line": "Takeda strategist said to have proposed the Woodpecker plan."
+    },
+    "03_信繁": {
+      "name": "Takeda Nobushige",
+      "short": "Nobushige",
+      "line": "Shingen's younger brother, killed at Kawanakajima."
+    },
+    "04_信春": {
+      "name": "Baba Nobuharu",
+      "short": "Nobuharu",
+      "line": "A brave commander who supported the Takeda house."
+    },
+    "05_昌信": {
+      "name": "Kosaka Masanobu",
+      "short": "Masanobu",
+      "line": "A senior Takeda retainer said to have led a separate detachment."
+    },
+    "06_昌景": {
+      "name": "Yamagata Masakage",
+      "short": "Masakage",
+      "line": "A Takeda commander known for his red-armored troops."
+    },
+    "07_昌豊": {
+      "name": "Naito Masatoyo",
+      "short": "Masatoyo",
+      "line": "A commander who served the Takeda in government and war."
+    },
+    "08_三条": {
+      "name": "Lady Sanjo",
+      "short": "Sanjo",
+      "line": "Shingen's principal wife, born into the courtly Sanjo house."
+    },
+    "09_謙信": {
+      "name": "Uesugi Kenshin",
+      "short": "Kenshin",
+      "line": "Daimyo of Echigo, he fought Shingen at Kawanakajima."
+    },
+    "10_景家": {
+      "name": "Kakizaki Kageie",
+      "short": "Kageie",
+      "line": "He is said to have commanded the Uesugi vanguard."
+    },
+    "11_景綱": {
+      "name": "Naoe Kagetsuna",
+      "short": "Kagetsuna",
+      "line": "A senior retainer who oversaw Uesugi affairs."
+    },
+    "12_定満": {
+      "name": "Usami Sadamitsu",
+      "short": "Sadamitsu",
+      "line": "He is remembered in tradition as a Uesugi strategist."
+    },
+    "13_景持": {
+      "name": "Amakasu Kagemochi",
+      "short": "Kagemochi",
+      "line": "He is said to have held the rear for the Uesugi army."
+    },
+    "14_仙桃院": {
+      "name": "Sentoin",
+      "short": "Sentoin",
+      "line": "Kenshin's elder sister, who supported the Uesugi house."
+    }
+  },
+  "rules": {
+    "falling": "When you match tiles, the tiles above them drop.",
+    "construction": "The top row shows the next timber supply. Each column with room gets one tile. Timber waits above full columns. Clear the board and all timber to win. Retreat restores both, and the clock keeps running.",
+    "siege": "Barricades spread inward through empty spaces from the edge. Tiles stay in place. Breakout removes the innermost layer. If you have no matches and no Breakout uses left, you lose.",
+    "boss": "Duel: Clear all four Kenshin tiles before clearing Shingen's four. If Shingen falls first, you lose. The duel in which a war fan caught a sword is a later legend.",
+    "fog": "You cannot select fogged tiles or connect through them. Match a tile directly above, below or beside one to clear its fog. Redeploy shuffles only visible tiles. Retreat restores fog."
+  }
+}
