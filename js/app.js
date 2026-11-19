@@ -73,86 +73,34 @@ function conquered(){return new Set(worldMap.levels.filter(v=>chapters.get(v.cha
 function unified(){return chapters.size===8&&[...chapters.values()].every(c=>c.progress.stars.every(Boolean));}
 let recentOccupation=null;
 const mapFaction=c=>c===4?'takeda':c===6?'akechi':c===7?'tokugawa':c===8?'toyotomi':'oda';
-// Match the faction crest geometry in style.css, using vermilion ink.
-const occupationCrests = {
-  oda: `<svg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100'>
-    <g fill='#a8392a'>
-      <circle r='22' cx='0' cy='-25'/>
-      <circle r='22' cx='23.8' cy='-7.7'/>
-      <circle r='22' cx='14.7' cy='20.2'/>
-      <circle r='22' cx='-14.7' cy='20.2'/>
-      <circle r='22' cx='-23.8' cy='-7.7'/>
-      <circle r='20'/>
-    </g>
-    <circle r='9' fill='#fff6ea'/>
-  </svg>`,
-  takeda: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <g fill='#a8392a'>
-      <path d='M5 50 26 31 47 50 26 69ZM29 28 50 9 71 28 50 47ZM53 50 74 31 95 50 74 69ZM29 72 50 53 71 72 50 91Z'/>
-    </g>
-  </svg>`,
-  akechi: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <g fill="#a8392a">
-      <path d="M50 52Q24 27 50 5Q76 27 50 52Z" transform="rotate(0 50 50)"/>
-      <path d="M50 52Q24 27 50 5Q76 27 50 52Z" transform="rotate(72 50 50)"/>
-      <path d="M50 52Q24 27 50 5Q76 27 50 52Z" transform="rotate(144 50 50)"/>
-      <path d="M50 52Q24 27 50 5Q76 27 50 52Z" transform="rotate(216 50 50)"/>
-      <path d="M50 52Q24 27 50 5Q76 27 50 52Z" transform="rotate(288 50 50)"/>
-      <circle cx="50" cy="50" r="9"/>
-    </g>
-  </svg>`,
-  tokugawa: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <circle cx="50" cy="50" r="45" fill="none" stroke="#a8392a" stroke-width="6"/>
-    <g fill="#a8392a">
-      <path id="leaf" d="M50 48C25 37 27 10 42 15Q50 18 50 25Q56 10 65 16C82 29 62 43 50 48Z"/>
-      <use href="#leaf" transform="rotate(120 50 50)"/>
-      <use href="#leaf" transform="rotate(240 50 50)"/>
-    </g>
-  </svg>`,
-  toyotomi: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <g fill="#a8392a">
-      <path d="M50 94Q8 86 8 57Q35 49 50 72Q65 49 92 57Q92 86 50 94M50 76Q26 46 50 39Q74 46 50 76"/>
-      <path d="M25 60V10" stroke="#a8392a" stroke-width="5"/>
-      <circle cx="30" cy="10" r="5"/>
-      <circle cx="20" cy="16" r="5"/>
-      <circle cx="30" cy="22" r="5"/>
-      <circle cx="20" cy="28" r="5"/>
-      <circle cx="30" cy="34" r="5"/>
-      <path d="M50 60V10" stroke="#a8392a" stroke-width="5"/>
-      <circle cx="55" cy="10" r="5"/>
-      <circle cx="45" cy="16" r="5"/>
-      <circle cx="55" cy="22" r="5"/>
-      <circle cx="45" cy="28" r="5"/>
-      <circle cx="55" cy="34" r="5"/>
-      <circle cx="45" cy="40" r="5"/>
-      <circle cx="55" cy="46" r="5"/>
-      <path d="M75 60V10" stroke="#a8392a" stroke-width="5"/>
-      <circle cx="80" cy="10" r="5"/>
-      <circle cx="70" cy="16" r="5"/>
-      <circle cx="80" cy="22" r="5"/>
-      <circle cx="70" cy="28" r="5"/>
-      <circle cx="80" cy="34" r="5"/>
-    </g>
-  </svg>`
-};
-function occupationSeal(target, faction, animate) {
-  const crest = encodeURIComponent(occupationCrests[faction]);
-  return `<g transform="translate(${target.x} ${target.y}) rotate(-8)" aria-label="家紋印章">
-    <g${animate ? ' class="occupation-seal-drop"' : ''}>
-      <rect x="-12" y="-12" width="24" height="24" rx="3" fill="#f1dca6" stroke="#9c3424" stroke-width="1.3"/>
-      <image href="data:image/svg+xml,${crest}" x="-9" y="-9" width="18" height="18"/>
-      ${animate ? '<rect class="occupation-seal-ink" x="-12" y="-12" width="24" height="24" rx="3" fill="none" stroke="#ac4636"/>' : ''}
-    </g>
-  </g>`;
-}
 function occupationSound(){const token=run;setTimeout(()=>{if(run===token)sound('select');},600);}
-function mapSVG(focus='',animate=false,full=false){const owned=conquered(),target=worldMap.provinces.find(p=>p.id===focus),box=target&&!full?`${target.x-65} ${target.y-65} 130 130`:worldMap.viewBox,faction=mapFaction(recentOccupation?.province===focus?recentOccupation.chapter:chapter);return `<svg class="province-map ${animate?'occupation-map':''} ${faction}" viewBox="${box}" role="img" aria-label="旧国地図${focus?'・'+esc(focus):''}"><image href="img/map_japan.svg" x="-190" y="0" width="610" height="605"/>${worldMap.provinces.map(p=>`<path class="province ${owned.has(p.id)?'owned':''} ${focus===p.id?'focused':''} ${animate&&focus===p.id?'occupying':''}" d="${p.d}"><title>${esc(p.name)}${owned.has(p.id)?'・制圧済':''}</title></path>`).join('')}${worldMap.provinces.map(p=>`<text class="province-label" x="${p.x}" y="${p.y+3}">${esc(p.name)}</text>`).join('')}${target?occupationSeal(target,faction,animate):''}</svg>`;}
-// Keep the full country visible; the crest is positioned with task 42 coordinates.
-function mapLocation(){const bf=(worldMap.chapters||[]).find(c=>c.id===chapter)?.province,e=mapEntry(),p=worldMap.provinces.find(p=>p.id===(bf||e?.province));if(!p)return '';const faction=chapter===4?'takeda':chapter===6?'akechi':chapter===7?'tokugawa':chapter===8?'toyotomi':'oda';return `<button id="mini-map" class="map-location" aria-label="${esc(p.name)}国の位置・天下統一地図を開く"><span class="mini-map-art">${mapSVG()}<i class="mini-map-crest pc ${faction}" style="left:${(p.x+190)/610*100}%;top:${p.y/605*100}%"></i></span><span>本陣：<b>${esc(p.name)}国</b></span></button>`;}
+function mapSVG(focus='',highlight='province-highlight',showChapters=false){
+ const owned=conquered(),faction=mapFaction(recentOccupation?.province===focus?recentOccupation.chapter:chapter);
+ const chapterProvinces=new Set(showChapters?worldMap.chapters.map(c=>c.province):[]);
+ const ordinary=[],chapterBorders=[],focused=[];
+ for(const p of worldMap.provinces){
+  const isFocus=p.id===focus, isChapter=chapterProvinces.has(p.id);
+  const classes=['province'];
+  if(owned.has(p.id))classes.push('owned');
+  if(isFocus)classes.push(highlight);
+  else if(isChapter)classes.push('chapter-border');
+  const paths=isFocus?focused:isChapter?chapterBorders:ordinary;
+  paths.push(`<path class="${classes.join(' ')}" d="${p.d}"><title>${esc(p.name)}${owned.has(p.id)?'・制圧済':''}</title></path>`);
+ }
+ return `<svg class="province-map ${faction}" viewBox="${worldMap.viewBox}" role="img" aria-label="旧国地図${focus?'・'+esc(focus):''}"><image href="img/map_japan.svg" x="-190" y="0" width="610" height="605"/>${ordinary.join('')}${chapterBorders.join('')}${focused.join('')}${worldMap.provinces.map(p=>`<text class="province-label" x="${p.x}" y="${p.y+3}">${esc(p.name)}</text>`).join('')}</svg>`;
+}
+function mapLocation(){
+ const battlefield=mapEntry()?.province;
+ const base=worldMap.chapters.find(c=>c.id===chapter)?.province||battlefield;
+ const p=worldMap.provinces.find(p=>p.id===base);
+ if(!p)return '';
+ const focus=battlefield||base;
+ return `<button id="mini-map" class="map-location" aria-label="${esc(focus)}国の位置・天下統一地図を開く"><span class="mini-map-art">${mapSVG(focus,'battlefield-pulse')}</span><span>本陣：<b>${esc(p.name)}国</b></span></button>`;
+}
 function victoryStamp(){return `<div class="victory-stamp" role="img" aria-label="勝"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><filter id="seal-ink"><feTurbulence type="fractalNoise" baseFrequency=".19" numOctaves="3" seed="8" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8"/></filter></defs><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="square" filter="url(#seal-ink)"><path stroke-width="5" d="M10 9L110 11 109 110 9 108Z"/><path stroke-width="2" d="M16 16H103V103H16Z"/><!-- Hand-cut square seal strokes for 勝: 月 + upper component + 力. --><path stroke-width="6" d="M25 94V27H46V92H38M26 46H45M26 65H45M57 26L63 37M87 26L81 37M54 43H96M56 55H96M73 37L65 57 53 68M79 44L90 62 98 67M56 72H91L88 93H78M72 61L69 78 58 94"/></g></svg></div>`;}
 
 const MAP_MARKERS=[[80,67],[70,52],[45,42],[88,38],[88,80],[43,63],[56,79],[32,83]];
-function selectChapter(){const owned=conquered();view(`<header class="toolbar"><h2>天下統一地図</h2><button id="back">タイトルへ</button></header><div class="map-summary">制圧 ${owned.size} / 66 国　・　${[...chapters.values()].reduce((n,c)=>n+c.progress.stars.filter(Boolean).length,0)} / 80 戦</div><div class="map-controls"><button id="map-minus" aria-label="縮小">−</button><button id="map-reset">全図</button><button id="map-plus" aria-label="拡大">＋</button></div><div class="map-viewport"><div class="map-canvas">${mapSVG(recentOccupation?.province||'',!!recentOccupation,true)}<svg class="map-leaders" viewBox="-190 0 610 605" aria-hidden="true">${worldMap.chapters.map((c,i)=>{const p=worldMap.provinces.find(p=>p.id===c.province),pos=MAP_MARKERS[i];return `<path d="M${p.x},${p.y}L${pos[0]*6.1-190},${pos[1]*6.05}"/><circle cx="${p.x}" cy="${p.y}" r="3"/>`;}).join('')}</svg>${worldMap.chapters.map((c,i)=>{const p=worldMap.provinces.find(p=>p.id===c.province);const pos=MAP_MARKERS[i];return `<button id="ch${c.id}" class="map-marker pc ${c.id===4?'takeda':c.id===6?'akechi':c.id===7?'tokugawa':c.id===8?'toyotomi':'oda'}" style="left:${pos[0]}%;top:${pos[1]}%" aria-label="第${c.id}章 ${esc(c.name)}" ${!UNLOCK_ALL&&!previewAll&&c.id>1&&!chapters.get(c.id-1).progress.stars.every(Boolean)?'disabled':''}><span>${c.id}</span></button>`;}).join('')}</div></div><p class="map-help">家紋をタップして出陣。＋で拡大、指で移動できます。</p><div class="map-chapters">${worldMap.chapters.map(c=>`<button data-map-chapter="${c.id}" ${!UNLOCK_ALL&&!previewAll&&c.id>1&&!chapters.get(c.id-1).progress.stars.every(Boolean)?'disabled':''}>${c.id}　${esc(c.name)}</button>`).join('')}</div>${unified()?'<button id="unified" class="primary">天下統一の記録</button>':''}<details class="map-credit"><summary>地図について・出典</summary><p>戦国期の66国（壱岐・対馬を除く）。進軍順は遊戯上の演出です。</p><a href="https://commons.wikimedia.org/wiki/File:Provinces_of_Japan.svg" target="_blank" rel="noopener">Provinces of Japan — Ash_Crow（原図：百楽兎）</a> · <a href="https://creativecommons.org/licenses/by/2.5/" target="_blank" rel="noopener">CC BY 2.5</a><p>境界を抽出し、配色・構成・表示範囲を変更。</p></details>`,'world-map');for(const c of worldMap.chapters)$('#ch'+c.id).onclick=()=>chooseChapter(c.id);document.querySelectorAll('[data-map-chapter]').forEach(b=>b.onclick=()=>chooseChapter(+b.dataset.mapChapter));$('#back').onclick=title;if($('#unified'))$('#unified').onclick=ending;bindMap();if(recentOccupation)occupationSound();}
+function selectChapter(){const owned=conquered();view(`<header class="toolbar"><h2>天下統一地図</h2><button id="back">タイトルへ</button></header><div class="map-summary">制圧 ${owned.size} / 66 国　・　${[...chapters.values()].reduce((n,c)=>n+c.progress.stars.filter(Boolean).length,0)} / 80 戦</div><div class="map-controls"><button id="map-minus" aria-label="縮小">−</button><button id="map-reset">全図</button><button id="map-plus" aria-label="拡大">＋</button></div><div class="map-viewport"><div class="map-canvas">${mapSVG(recentOccupation?.province||'','province-highlight',true)}<svg class="map-leaders" viewBox="-190 0 610 605" aria-hidden="true">${worldMap.chapters.map((c,i)=>{const p=worldMap.provinces.find(p=>p.id===c.province),pos=MAP_MARKERS[i];return `<path d="M${p.x},${p.y}L${pos[0]*6.1-190},${pos[1]*6.05}"/>`;}).join('')}</svg>${worldMap.chapters.map((c,i)=>{const pos=MAP_MARKERS[i];return `<button id="ch${c.id}" class="map-marker" style="left:${pos[0]}%;top:${pos[1]}%" aria-label="第${c.id}章 ${esc(c.name)}" ${!UNLOCK_ALL&&!previewAll&&c.id>1&&!chapters.get(c.id-1).progress.stars.every(Boolean)?'disabled':''}><span>${c.id}</span></button>`;}).join('')}</div></div><p class="map-help">章番号をタップして出陣。＋で拡大、指で移動できます。</p><div class="map-chapters">${worldMap.chapters.map(c=>`<button data-map-chapter="${c.id}" ${!UNLOCK_ALL&&!previewAll&&c.id>1&&!chapters.get(c.id-1).progress.stars.every(Boolean)?'disabled':''}>${c.id}　${esc(c.name)}</button>`).join('')}</div>${unified()?'<button id="unified" class="primary">天下統一の記録</button>':''}<details class="map-credit"><summary>地図について・出典</summary><p>戦国期の66国（壱岐・対馬を除く）。進軍順は遊戯上の演出です。</p><a href="https://commons.wikimedia.org/wiki/File:Provinces_of_Japan.svg" target="_blank" rel="noopener">Provinces of Japan — Ash_Crow（原図：百楽兎）</a> · <a href="https://creativecommons.org/licenses/by/2.5/" target="_blank" rel="noopener">CC BY 2.5</a><p>境界を抽出し、配色・構成・表示範囲を変更。</p></details>`,'world-map');for(const c of worldMap.chapters)$('#ch'+c.id).onclick=()=>chooseChapter(c.id);document.querySelectorAll('[data-map-chapter]').forEach(b=>b.onclick=()=>chooseChapter(+b.dataset.mapChapter));$('#back').onclick=title;if($('#unified'))$('#unified').onclick=ending;bindMap();if(recentOccupation)occupationSound();}
 function bindMap(){const viewport=$('.map-viewport'),canvas=$('.map-canvas');let zoom=1,drag=null,moved=false;function scale(n){zoom=Math.max(1,Math.min(3,n));canvas.style.width=`${zoom*100}%`;}$('#map-plus').onclick=()=>scale(zoom+.5);$('#map-minus').onclick=()=>scale(zoom-.5);$('#map-reset').onclick=()=>{scale(1);viewport.scrollLeft=viewport.scrollTop=0;};viewport.onpointerdown=e=>{drag={x:e.clientX,y:e.clientY,l:viewport.scrollLeft,t:viewport.scrollTop};moved=false;};viewport.onpointermove=e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.hypot(dx,dy)>8){moved=true;viewport.setPointerCapture?.(e.pointerId);}if(moved){viewport.scrollLeft=drag.l-dx;viewport.scrollTop=drag.t-dy;}};viewport.onpointerup=viewport.onpointercancel=()=>{drag=null;};viewport.onclick=e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false;}};viewport.addEventListener?.('click',e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);}
 function chooseChapter(n){if(!UNLOCK_ALL&&!previewAll&&n>1&&!chapters.get(n-1).progress.stars.every(Boolean)){toast('前の章をクリアしてください');return;}if(n>1&&!previewAll&&!store.isUnlocked()){unlockPage(()=>chooseChapter(n));return;}chapters.get(chapter).progress=progress;chapter=n;({data,text,progress}=chapters.get(n));selectLevel();}
 function selectLevel(){view(`<div class="eyebrow">${chapterLabel()}</div><h2>${esc(text.chapter?.title||'桶狭間の戦い')}</h2><div class="scroll"><div class="levels">${data.levels.map((l,i)=>`<button class="level" data-level="${i}" ${!UNLOCK_ALL&&!previewAll&&i>0&&!progress.stars[i-1]?'disabled':''}><strong>${i+1}</strong>　${esc(fname(l))}<br><span class="stars">${'★'.repeat(progress.stars[i])}${'☆'.repeat(3-progress.stars[i])}</span></button>`).join('')}</div></div><div class="btn-row"><button id="back">章の選択へ</button><button id="intro">章の紹介</button></div>`);document.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>enter(+b.dataset.level));$('#intro').onclick=()=>intro(selectLevel);$('#back').onclick=selectChapter;}
@@ -231,8 +179,8 @@ function reshuffle(free){if(busy||paused||(!free&&!shuffles))return;snapshot();b
 function breakout(){if(busy||paused||!level.siege)return;const next=breakSiege(siege);if(!next)return;snapshot();siege=next;siegeDue=seconds()-cadence(level.siegeInterval);selected=-1;render();updateHud();ensureMove();}
 function undo(){if(busy||paused||!history.length)return;const s=history.pop();board=s.board;ids=s.ids;shot=s.shot;moves=s.moves;artilleryDue=seconds()-s.artilleryDelay;betrayalLeft=s.betrayalLeft;fire=s.fire;fog=(s.fog||[]).slice();if(level.siege){siege=s.siege;siegeDue=seconds()-s.siegeDelay;}queues=s.queues.map(q=>q.slice());supplyDue=seconds()-(s.supplyDelay||cadence(level.supplyInterval));moves=s.moves;combo=0;maxCombo=s.maxCombo;lastMatch=0;selected=-1;render();updateHud();toast('一手もどしました');if(!level.fog&&!level.construction&&!level.siege)ensureMove();}
 function pause(){if(paused||busy)return;remaining=seconds();paused=true;weather({paused:true});music.pause(true);clearHold();const o=document.createElement('div');o.className='overlay';o.innerHTML=`<div class="dialog pause-dialog"><h2>一時停止</h2><p>${chapterLabel()}　第${level.id}戦</p><button id="pause-settings">${icon('settings')}設定</button><div class="btn-row"><button id="leave">関の選択へ</button><button id="resume" class="primary">つづける</button></div></div>`;app.appendChild(o);$('#pause-settings').onclick=()=>battleSettings();$('#resume').onclick=()=>{o.remove();paused=false;weather({paused:false});music.pause(false);started=battleNow();};$('#leave').onclick=()=>{saveSession();deploy();};}
-function finish(win,reason=''){gameStorage.removeItem('sengoku-session');if(screen!=='game')return;remaining=seconds();paused=true;const elapsed=Math.min(level.time,level.time-remaining),stars=win?(settings.relaxed?1+(!usedHint?1:0):remaining>=level.time*.5&&!usedHint&&shuffles===2?3:remaining>=level.time*.25?2:1):0;if(demoMode)demoResult={run:run+1,win,reason,elapsed,stars};const id=level.id,wasCleared=!!progress.stars[id-1],wasChapterCleared=progress.stars.every(Boolean);const wasMaster=progress.stars.every(v=>v===3);const province=mapEntry()?.province,newProvince=win&&province&&!conquered().has(province);if(newProvince)recentOccupation={province,chapter};if(win){progress.stars[id-1]=Math.max(progress.stars[id-1],stars);save();if(!wasChapterCleared&&progress.stars.every(Boolean))gameStorage.setItem('sengoku-unread','1');}let reward={rows:[],total:0,state:readMerit(gameStorage)};try{reward=awardMerit(gameStorage,`${chapter}-${id}`,{win,remaining,time:level.time,maxCombo,usedHint,relaxed:settings.relaxed},wasCleared);}catch{toast('戦功を保存できません');}if(!win)sound('lose');view(`${meritCounter(reward.state.balance-reward.total)}<div class="eyebrow">${chapterLabel()}　第 ${id} 戦</div><div class="result-map"><div class="result-geography"><div class="result-map-art">${mapSVG(province||'',!!newProvince,true)}<span aria-label="${win?'勝利':'敗北'}" class="sea-stamp ${win?'':'defeat'}">${win?'勝':'敗'}</span></div></div><div class="map-caption">${win?(newProvince?esc(province)+'国 制圧！':'領国を固めた'):esc(reason)} ${conquered().size}/66</div></div>${win?settlementHTML(reward):'<p>もう一度、挑もう。</p>'}<div class="reward-summary"><strong id="merit-total">戦功 +0</strong><span class="resultStars merit-stars" style="--stars-delay:0s">${win?'★'.repeat(stars)+'☆'.repeat((settings.relaxed?2:3)-stars):'☆☆☆'}</span></div><p class="result-stats">${settings.relaxed?'時間の星：不計 ・ 消した組 '+moves+'手':'用時 '+Math.floor(elapsed)+'秒'} ・ 最高 ${maxCombo}連撃${win&&!wasMaster&&progress.stars.every(v=>v===3)?' ・ 章完全制覇':''}</p><p class="star-conditions">${settings.relaxed?'のんびりモード：星は二つまで。献策なしで二つ星。':'二つ星：残り時間25％以上。三つ星：残り時間50％以上、献策・陣替えなし（自動は除く）。'}</p><div class="result-actions btn-row"><button id="retry">もう一度</button>${win&&id<10?'<button class="primary" id="next">次の戦へ</button>':win&&chapter<8?'<button id="next-chapter" class="primary">次の章へ</button>':'<button id="levels" class="primary">'+(win?'天下統一へ':'地図へ')+'</button>'}</div>${win&&!(id===10&&chapter===8)?'<button id="levels" class="result-levels">関の選択へ</button>':''}`,'center result');if(win){animateMerit(reward);effectMusic.play('jingle_clear');const token=run;if(newProvince)occupationSound();}$('#retry').onclick=deploy;$('#levels').onclick=win&&(unified()||(chapter===8&&id===10))?ending:win?selectLevel:selectChapter;if(win&&(unified()||(chapter===8&&id===10)))$('#levels').textContent=unified()?'天下統一へ':'戦国の結びへ';if($('#next'))$('#next').onclick=()=>enter(id);if($('#next-chapter'))$('#next-chapter').onclick=()=>{const n=chapter+1;if(!previewAll&&!store.isUnlocked()){if(chapter===1)futureBattles();else unlockPage(()=>{switchChapter(n);enter(0);});return;}switchChapter(n);enter(0);};if(win&&chapter===1&&id===10&&!wasCleared&&!previewAll&&!store.isUnlocked()){const token=run;setTimeout(()=>{if(run===token)futureBattles();},4200);}}
-function ending(){const complete=unified();view(`<div class="eyebrow">${complete?'八十戦 完遂':'天下への道'}</div><h2>${complete?'天下統一':'戦国の結び'}</h2>${mapSVG(recentOccupation?.province||'',!!recentOccupation,true)}<p>${complete?'六十六国に、泰平の光が灯る。<br>幾多の戦を越えた、その歩みに感謝を。':'まだ見ぬ戦が、あなたを待っています。<br>すべての八十戦を終え、天下統一を目指そう。'}</p><button id="chapters" class="primary">章の選択へ</button>`,'center unification');$('#chapters').onclick=selectChapter;if(recentOccupation)occupationSound();}
+function finish(win,reason=''){gameStorage.removeItem('sengoku-session');if(screen!=='game')return;remaining=seconds();paused=true;const elapsed=Math.min(level.time,level.time-remaining),stars=win?(settings.relaxed?1+(!usedHint?1:0):remaining>=level.time*.5&&!usedHint&&shuffles===2?3:remaining>=level.time*.25?2:1):0;if(demoMode)demoResult={run:run+1,win,reason,elapsed,stars};const id=level.id,wasCleared=!!progress.stars[id-1],wasChapterCleared=progress.stars.every(Boolean);const wasMaster=progress.stars.every(v=>v===3);const province=mapEntry()?.province,newProvince=win&&province&&!conquered().has(province);if(newProvince)recentOccupation={province,chapter};if(win){progress.stars[id-1]=Math.max(progress.stars[id-1],stars);save();if(!wasChapterCleared&&progress.stars.every(Boolean))gameStorage.setItem('sengoku-unread','1');}let reward={rows:[],total:0,state:readMerit(gameStorage)};try{reward=awardMerit(gameStorage,`${chapter}-${id}`,{win,remaining,time:level.time,maxCombo,usedHint,relaxed:settings.relaxed},wasCleared);}catch{toast('戦功を保存できません');}if(!win)sound('lose');view(`${meritCounter(reward.state.balance-reward.total)}<div class="eyebrow">${chapterLabel()}　第 ${id} 戦</div><div class="result-map"><div class="result-geography"><div class="result-map-art">${mapSVG(win?(province||''):'',newProvince?'province-flash':'province-glint')}<span aria-label="${win?'勝利':'敗北'}" class="sea-stamp ${win?'':'defeat'}">${win?'勝':'敗'}</span></div></div><div class="map-caption">${win?(newProvince?esc(province)+'国 制圧！':'領国を固めた'):esc(reason)} ${conquered().size}/66</div></div>${win?settlementHTML(reward):'<p>もう一度、挑もう。</p>'}<div class="reward-summary"><strong id="merit-total">戦功 +0</strong><span class="resultStars merit-stars" style="--stars-delay:0s">${win?'★'.repeat(stars)+'☆'.repeat((settings.relaxed?2:3)-stars):'☆☆☆'}</span></div><p class="result-stats">${settings.relaxed?'時間の星：不計 ・ 消した組 '+moves+'手':'用時 '+Math.floor(elapsed)+'秒'} ・ 最高 ${maxCombo}連撃${win&&!wasMaster&&progress.stars.every(v=>v===3)?' ・ 章完全制覇':''}</p><p class="star-conditions">${settings.relaxed?'のんびりモード：星は二つまで。献策なしで二つ星。':'二つ星：残り時間25％以上。三つ星：残り時間50％以上、献策・陣替えなし（自動は除く）。'}</p><div class="result-actions btn-row"><button id="retry">もう一度</button>${win&&id<10?'<button class="primary" id="next">次の戦へ</button>':win&&chapter<8?'<button id="next-chapter" class="primary">次の章へ</button>':'<button id="levels" class="primary">'+(win?'天下統一へ':'地図へ')+'</button>'}</div>${win&&!(id===10&&chapter===8)?'<button id="levels" class="result-levels">関の選択へ</button>':''}`,'center result');if(win){animateMerit(reward);effectMusic.play('jingle_clear');const token=run;if(newProvince)occupationSound();}$('#retry').onclick=deploy;$('#levels').onclick=win&&(unified()||(chapter===8&&id===10))?ending:win?selectLevel:selectChapter;if(win&&(unified()||(chapter===8&&id===10)))$('#levels').textContent=unified()?'天下統一へ':'戦国の結びへ';if($('#next'))$('#next').onclick=()=>enter(id);if($('#next-chapter'))$('#next-chapter').onclick=()=>{const n=chapter+1;if(!previewAll&&!store.isUnlocked()){if(chapter===1)futureBattles();else unlockPage(()=>{switchChapter(n);enter(0);});return;}switchChapter(n);enter(0);};if(win&&chapter===1&&id===10&&!wasCleared&&!previewAll&&!store.isUnlocked()){const token=run;setTimeout(()=>{if(run===token)futureBattles();},4200);}}
+function ending(){const complete=unified();view(`<div class="eyebrow">${complete?'八十戦 完遂':'天下への道'}</div><h2>${complete?'天下統一':'戦国の結び'}</h2>${mapSVG(recentOccupation?.province||'')}<p>${complete?'六十六国に、泰平の光が灯る。<br>幾多の戦を越えた、その歩みに感謝を。':'まだ見ぬ戦が、あなたを待っています。<br>すべての八十戦を終え、天下統一を目指そう。'}</p><button id="chapters" class="primary">章の選択へ</button>`,'center unification');$('#chapters').onclick=selectChapter;if(recentOccupation)occupationSound();}
 document.addEventListener('visibilitychange',()=>{if(!demoMode&&document.hidden&&screen==='game'&&!paused&&!busy)pause();});
 
 const SETTINGS_KEY='sengoku-settings';
