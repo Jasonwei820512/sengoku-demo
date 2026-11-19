@@ -247,7 +247,7 @@ body[data-board=waves] .board{background:radial-gradient(circle at 50% 100%,tran
 .center.result:has(.result-actions){padding-top:calc(12px + env(safe-area-inset-top));padding-bottom:calc(12px + env(safe-area-inset-bottom))}.settings.paged,.collection.paged{padding-top:calc(12px + env(safe-area-inset-top));padding-bottom:calc(12px + env(safe-area-inset-bottom))}@media(max-height:700px){.center.result:has(.result-actions){padding-top:calc(8px + env(safe-area-inset-top));padding-bottom:calc(8px + env(safe-area-inset-bottom))}.settings.paged,.collection.paged{padding-top:calc(10px + env(safe-area-inset-top));padding-bottom:calc(10px + env(safe-area-inset-bottom))}}
 /* Task 52: compact iPhone composition and application-owned type sizing. */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:16px}
-.screen{max-width:430px}.deploy-tools{display:flex;justify-content:flex-end}.deploy-tools .gear{order:-1;margin-right:auto;position:relative}.settings-buttons button,.gear{position:relative}#open-settings .strategy-icon,#pause-settings .strategy-icon{width:20px;height:20px;vertical-align:middle;margin-right:4px}.red-dot{position:absolute;top:3px;right:3px;width:8px;height:8px;border:1px solid #f4c782;border-radius:50%;background:#e94d43;pointer-events:none}
+.screen{max-width:430px}.deploy-tools{display:flex;justify-content:flex-end}.deploy-tools .gear{order:-1;margin-right:auto;position:relative}.settings-buttons button,.gear{position:relative}#open-settings .strategy-icon,.pause-dialog > button .strategy-icon{width:20px;height:20px;vertical-align:middle;margin-right:4px}.red-dot{position:absolute;top:3px;right:3px;width:8px;height:8px;border:1px solid #f4c782;border-radius:50%;background:#e94d43;pointer-events:none}
 .game{justify-content:center;gap:5px}.game .board-area{flex:0 1 auto;min-height:0;height:min(calc((100vw - 52px)*8/7 + 45px),calc(100dvh - 258px - env(safe-area-inset-top) - env(safe-area-inset-bottom)));width:100%}.game:has(.supply) .board-area{height:min(calc((100vw - 52px)*8/7 + 45px),calc(100dvh - 310px - env(safe-area-inset-top) - env(safe-area-inset-bottom)))}
 .battle-position{white-space:nowrap;text-align:left;color:#fff0c1;font-size:15px;font-weight:700;letter-spacing:0;line-height:1.5}.battle-position strong{display:block;font-size:19px}.hud .toolbar{gap:5px}.hud h2{margin:0;font-size:15px}.controls button:disabled{opacity:.4;filter:grayscale(.7)}
 .paged>.toolbar,.world-map>.toolbar,.person-detail>.toolbar{position:sticky;top:0;z-index:12;background:#203b30;box-shadow:0 5px 8px #152a23;padding:5px 0}.paged{overflow-y:auto}.choice-dialog{max-height:85dvh;overflow:auto;gap:8px}.choice-dialog button{min-height:44px}.catalog-filter{display:flex;justify-content:space-between;align-items:center}
@@ -258,3 +258,29 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:16px}
 
 .spotlight-target{box-shadow:none!important;z-index:auto}.spotlight-window{position:fixed;border:2px solid #ffe3a1;border-radius:7px;box-shadow:0 0 0 200vmax #050c0bd9;pointer-events:none}.spotlight-card{z-index:1}
 .tile.spotlight-target{position:absolute}
+
+.pause-dialog {
+  --pause-art-a: url("img/ui/pause_A.jpg");
+  --pause-art-b: url("img/ui/pause_B.jpg");
+  --pause-art: var(--pause-art-a);
+  aspect-ratio: 10 / 9;
+  max-height: 100%;
+  justify-content: safe center;
+  overflow: auto;
+  padding: 32px;
+  gap: 12px;
+  border: 0;
+  background: #302015 var(--pause-art) center / 100% 100% no-repeat;
+}
+.pause-dialog h2 {
+  color: #ffe4a3;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  text-shadow: 0 2px 3px #1b1008;
+}
+.pause-dialog p { margin: 0; }
+.pause-dialog .btn-row { margin-top: 0; }
+.pause-dialog .btn-row > button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.large-text .pause-dialog button { font-size: 16px; }
