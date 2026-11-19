@@ -73,8 +73,80 @@ function conquered(){return new Set(worldMap.levels.filter(v=>chapters.get(v.cha
 function unified(){return chapters.size===8&&[...chapters.values()].every(c=>c.progress.stars.every(Boolean));}
 let recentOccupation=null;
 const mapFaction=c=>c===4?'takeda':c===6?'akechi':c===7?'tokugawa':c===8?'toyotomi':'oda';
+// Match the faction crest geometry in style.css, using vermilion ink.
+const occupationCrests = {
+  oda: `<svg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100'>
+    <g fill='#a8392a'>
+      <circle r='22' cx='0' cy='-25'/>
+      <circle r='22' cx='23.8' cy='-7.7'/>
+      <circle r='22' cx='14.7' cy='20.2'/>
+      <circle r='22' cx='-14.7' cy='20.2'/>
+      <circle r='22' cx='-23.8' cy='-7.7'/>
+      <circle r='20'/>
+    </g>
+    <circle r='9' fill='#fff6ea'/>
+  </svg>`,
+  takeda: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <g fill='#a8392a'>
+      <path d='M5 50 26 31 47 50 26 69ZM29 28 50 9 71 28 50 47ZM53 50 74 31 95 50 74 69ZM29 72 50 53 71 72 50 91Z'/>
+    </g>
+  </svg>`,
+  akechi: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <g fill="#a8392a">
+      <path d="M50 52Q24 27 50 5Q76 27 50 52Z" transform="rotate(0 50 50)"/>
+      <path d="M50 52Q24 27 50 5Q76 27 50 52Z" transform="rotate(72 50 50)"/>
+      <path d="M50 52Q24 27 50 5Q76 27 50 52Z" transform="rotate(144 50 50)"/>
+      <path d="M50 52Q24 27 50 5Q76 27 50 52Z" transform="rotate(216 50 50)"/>
+      <path d="M50 52Q24 27 50 5Q76 27 50 52Z" transform="rotate(288 50 50)"/>
+      <circle cx="50" cy="50" r="9"/>
+    </g>
+  </svg>`,
+  tokugawa: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="45" fill="none" stroke="#a8392a" stroke-width="6"/>
+    <g fill="#a8392a">
+      <path id="leaf" d="M50 48C25 37 27 10 42 15Q50 18 50 25Q56 10 65 16C82 29 62 43 50 48Z"/>
+      <use href="#leaf" transform="rotate(120 50 50)"/>
+      <use href="#leaf" transform="rotate(240 50 50)"/>
+    </g>
+  </svg>`,
+  toyotomi: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <g fill="#a8392a">
+      <path d="M50 94Q8 86 8 57Q35 49 50 72Q65 49 92 57Q92 86 50 94M50 76Q26 46 50 39Q74 46 50 76"/>
+      <path d="M25 60V10" stroke="#a8392a" stroke-width="5"/>
+      <circle cx="30" cy="10" r="5"/>
+      <circle cx="20" cy="16" r="5"/>
+      <circle cx="30" cy="22" r="5"/>
+      <circle cx="20" cy="28" r="5"/>
+      <circle cx="30" cy="34" r="5"/>
+      <path d="M50 60V10" stroke="#a8392a" stroke-width="5"/>
+      <circle cx="55" cy="10" r="5"/>
+      <circle cx="45" cy="16" r="5"/>
+      <circle cx="55" cy="22" r="5"/>
+      <circle cx="45" cy="28" r="5"/>
+      <circle cx="55" cy="34" r="5"/>
+      <circle cx="45" cy="40" r="5"/>
+      <circle cx="55" cy="46" r="5"/>
+      <path d="M75 60V10" stroke="#a8392a" stroke-width="5"/>
+      <circle cx="80" cy="10" r="5"/>
+      <circle cx="70" cy="16" r="5"/>
+      <circle cx="80" cy="22" r="5"/>
+      <circle cx="70" cy="28" r="5"/>
+      <circle cx="80" cy="34" r="5"/>
+    </g>
+  </svg>`
+};
+function occupationSeal(target, faction, animate) {
+  const crest = encodeURIComponent(occupationCrests[faction]);
+  return `<g transform="translate(${target.x} ${target.y}) rotate(-8)" aria-label="家紋印章">
+    <g${animate ? ' class="occupation-seal-drop"' : ''}>
+      <rect x="-12" y="-12" width="24" height="24" rx="3" fill="#f1dca6" stroke="#9c3424" stroke-width="1.3"/>
+      <image href="data:image/svg+xml,${crest}" x="-9" y="-9" width="18" height="18"/>
+      ${animate ? '<rect class="occupation-seal-ink" x="-12" y="-12" width="24" height="24" rx="3" fill="none" stroke="#ac4636"/>' : ''}
+    </g>
+  </g>`;
+}
 function occupationSound(){const token=run;setTimeout(()=>{if(run===token)sound('select');},600);}
-function mapSVG(focus='',animate=false,full=false){const owned=conquered(),target=worldMap.provinces.find(p=>p.id===focus),box=target&&!full?`${target.x-65} ${target.y-65} 130 130`:worldMap.viewBox,faction=mapFaction(recentOccupation?.province===focus?recentOccupation.chapter:chapter);return `<svg class="province-map ${animate?'occupation-map':''} ${faction}" viewBox="${box}" role="img" aria-label="旧国地図${focus?'・'+esc(focus):''}"><image href="img/map_japan.svg" x="-190" y="0" width="610" height="605"/>${worldMap.provinces.map(p=>`<path class="province ${owned.has(p.id)?'owned':''} ${focus===p.id?'focused':''} ${animate&&focus===p.id?'occupying':''}" d="${p.d}"><title>${esc(p.name)}${owned.has(p.id)?'・制圧済':''}</title></path>`).join('')}${worldMap.provinces.map(p=>`<text class="province-label" x="${p.x}" y="${p.y+3}">${esc(p.name)}</text>`).join('')}${target?`<g transform="translate(${target.x} ${target.y})"><foreignObject x="-12" y="-12" width="24" height="24" class="${animate?'occupation-seal-drop':''}"><div xmlns="http://www.w3.org/1999/xhtml" class="occupation-seal pc ${faction}" aria-label="家紋印章"></div></foreignObject></g>`:''}</svg>`;}
+function mapSVG(focus='',animate=false,full=false){const owned=conquered(),target=worldMap.provinces.find(p=>p.id===focus),box=target&&!full?`${target.x-65} ${target.y-65} 130 130`:worldMap.viewBox,faction=mapFaction(recentOccupation?.province===focus?recentOccupation.chapter:chapter);return `<svg class="province-map ${animate?'occupation-map':''} ${faction}" viewBox="${box}" role="img" aria-label="旧国地図${focus?'・'+esc(focus):''}"><image href="img/map_japan.svg" x="-190" y="0" width="610" height="605"/>${worldMap.provinces.map(p=>`<path class="province ${owned.has(p.id)?'owned':''} ${focus===p.id?'focused':''} ${animate&&focus===p.id?'occupying':''}" d="${p.d}"><title>${esc(p.name)}${owned.has(p.id)?'・制圧済':''}</title></path>`).join('')}${worldMap.provinces.map(p=>`<text class="province-label" x="${p.x}" y="${p.y+3}">${esc(p.name)}</text>`).join('')}${target?occupationSeal(target,faction,animate):''}</svg>`;}
 // Keep the full country visible; the crest is positioned with task 42 coordinates.
 function mapLocation(){const bf=(worldMap.chapters||[]).find(c=>c.id===chapter)?.province,e=mapEntry(),p=worldMap.provinces.find(p=>p.id===(bf||e?.province));if(!p)return '';const faction=chapter===4?'takeda':chapter===6?'akechi':chapter===7?'tokugawa':chapter===8?'toyotomi':'oda';return `<button id="mini-map" class="map-location" aria-label="${esc(p.name)}国の位置・天下統一地図を開く"><span class="mini-map-art">${mapSVG()}<i class="mini-map-crest pc ${faction}" style="left:${(p.x+190)/610*100}%;top:${p.y/605*100}%"></i></span><span>本陣：<b>${esc(p.name)}国</b></span></button>`;}
 function victoryStamp(){return `<div class="victory-stamp" role="img" aria-label="勝"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><filter id="seal-ink"><feTurbulence type="fractalNoise" baseFrequency=".19" numOctaves="3" seed="8" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8"/></filter></defs><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="square" filter="url(#seal-ink)"><path stroke-width="5" d="M10 9L110 11 109 110 9 108Z"/><path stroke-width="2" d="M16 16H103V103H16Z"/><!-- Hand-cut square seal strokes for 勝: 月 + upper component + 力. --><path stroke-width="6" d="M25 94V27H46V92H38M26 46H45M26 65H45M57 26L63 37M87 26L81 37M54 43H96M56 55H96M73 37L65 57 53 68M79 44L90 62 98 67M56 72H91L88 93H78M72 61L69 78 58 94"/></g></svg></div>`;}

@@ -200,10 +200,9 @@ body[data-board=waves] .board{background:radial-gradient(circle at 50% 100%,tran
 /* Task 50: the province itself lights up, then receives the faction seal. */
 .province-map{--occupation-color:#c58d37}.province-map.takeda{--occupation-color:#bf5a48}.province-map.akechi{--occupation-color:#9d82bb}.province-map.tokugawa{--occupation-color:#668eae}.province-map.toyotomi{--occupation-color:#bd9840}
 .province.occupying{animation:province-light .6s ease-out both;vector-effect:non-scaling-stroke;stroke-width:2.5px;stroke:#ffe39a;filter:drop-shadow(0 0 2px #ffdf80)}
-.occupation-seal-drop{overflow:visible;transform-box:fill-box;transform-origin:center;animation:province-seal .38s .6s both}
-.occupation-seal.pc{display:block;width:24px;height:24px;max-width:none;border:1.3px solid #9c3424;border-radius:3px;background:#f1dca6e8;overflow:visible;box-shadow:none;transform:rotate(-8deg)}
-.occupation-seal.pc::before{inset:2px;width:18px;height:18px;filter:sepia(1) saturate(4) hue-rotate(325deg)}
-.occupation-seal::after{content:'';position:absolute;inset:0;border:1px solid #ac4636;border-radius:3px;animation:province-ink .5s .82s both;pointer-events:none}
+.occupation-seal-drop,.occupation-seal-ink{transform-box:fill-box;transform-origin:center}
+.occupation-seal-drop{animation:province-seal .28s .6s both}
+.occupation-seal-ink{animation:province-ink .5s .82s both;pointer-events:none}
 @keyframes province-light{0%{fill:#fff4c7;stroke:#fff3ba;filter:drop-shadow(0 0 5px #ffe09a)}65%{fill:var(--occupation-color);stroke:#ffe096;filter:drop-shadow(0 0 3px #ffd45b)}100%{fill:var(--occupation-color);stroke:#f1ca70;filter:drop-shadow(0 0 1px #ffe09a)}}
 @keyframes province-seal{0%{opacity:0;transform:translateY(-8px) scale(1.6)}70%{opacity:1;transform:translateY(1px) scale(.94)}100%{opacity:1;transform:none}}
 @keyframes province-ink{0%{opacity:.6;transform:scale(.9)}100%{opacity:0;transform:scale(1.22)}}
@@ -213,11 +212,9 @@ body[data-board=waves] .board{background:radial-gradient(circle at 50% 100%,tran
 .center:has(.result-actions) .merit-row{padding:2px 0;line-height:1.35}.center:has(.result-actions) .settlement strong{font-size:24px;margin-top:5px}.center:has(.result-actions) .occupation{width:160px}.center:has(.result-actions) .occupation svg{width:130px;height:130px;margin:auto}.center:has(.result-actions) .occupation strong,.center:has(.result-actions) .occupation small{margin:2px;font-size:12px}.center:has(.result-actions) .master-reward{padding:4px;font-size:12px;line-height:1.4}.center:has(.result-actions) h2{margin:2px;font-size:24px}.center:has(.result-actions) p{margin:2px;font-size:12px;line-height:1.5}.center:has(.result-actions) .victory-stamp{width:60px;height:60px}.center:has(.result-actions) .resultStars{font-size:28px;line-height:1.2}
 .large-text .center:has(.result-actions){height:100dvh;min-height:0;overflow:hidden}.large-text .center:has(.result-actions) .settlement{font-size:14px}.large-text .center:has(.result-actions) p{font-size:14px}
 @media(max-height:700px){.center:has(.result-actions){gap:4px}.center:has(.result-actions) .merit-row{padding:1px 0;line-height:1.25}.center:has(.result-actions) .occupation svg{width:104px;height:104px}.center:has(.result-actions) .victory-stamp{width:48px;height:48px}.center:has(.result-actions) .resultStars{font-size:26px}.center:has(.result-actions) .settlement strong{font-size:22px;margin-top:3px}.center:has(.result-actions) .master-reward{padding:2px}.center:has(.result-actions) .merit-counter{font-size:12px}}
-@media(prefers-reduced-motion:reduce){.province.occupying,.occupation-seal-drop,.occupation-seal::after{animation:none}.occupation-seal::after{display:none}}
+@media(prefers-reduced-motion:reduce){.province.occupying,.occupation-seal-drop,.occupation-seal-ink{animation:none}.occupation-seal-ink{display:none}}
 
 .siege-preview{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:8px 0;color:#e8c77f}.siege-preview span{font-size:16px;line-height:1.5;padding:5px}.siege-preview .encircled{border:3px double #d4a65c;box-shadow:0 0 6px #d4a65c66}.siege-preview b{font-size:12px}.siege-preview small{width:100%;text-align:center;font-size:11px;line-height:1.5}
-.province.occupying{animation:province-light .6s ease-out both;vector-effect:non-scaling-stroke;stroke-width:2.5px}.occupation-seal-drop{animation:province-seal .28s .6s both;transform-box:fill-box;transform-origin:center;overflow:visible}
-@media(prefers-reduced-motion:reduce){.province.occupying,.occupation-seal-drop{animation:none}}
 @media(max-height:700px){.center:has(.result-actions){gap:3px}.center:has(.result-actions) .settlement,.large-text .center:has(.result-actions) .settlement{font-size:12px}.center:has(.result-actions) .merit-row{line-height:1.15;padding:1px 0}.center:has(.result-actions) .occupation svg{width:80px;height:80px}.center:has(.result-actions) .occupation strong,.center:has(.result-actions) .occupation small{font-size:11px;line-height:1.2}.center:has(.result-actions) .victory-stamp{width:40px;height:40px}.center:has(.result-actions) .resultStars{font-size:24px;line-height:1}.center:has(.result-actions) .master-reward{font-size:11px;line-height:1.2}.center:has(.result-actions) .eyebrow{font-size:10px}.center:has(.result-actions) h2{font-size:22px}.center:has(.result-actions) p,.large-text .center:has(.result-actions) p{font-size:12px;line-height:1.3}}
 @media(max-height:700px) and (display-mode:standalone){.center:has(.result-actions) .occupation svg{width:64px;height:64px}}
 /* Task 51: shared compact navigation and result composition. */
@@ -233,7 +230,7 @@ body[data-board=waves] .board{background:radial-gradient(circle at 50% 100%,tran
 .result .province-map{width:100%;height:100%}
 .result .map-caption{flex:none;text-align:left;font-size:12px;color:#ffe4a0}
 .sea-stamp{
-  position:absolute;left:19%;top:40%;translate:-50% -50%;display:grid;place-items:center;
+  position:absolute;left:81%;top:79%;translate:-50% -50%;display:grid;place-items:center;
   width:min(21%,68px);aspect-ratio:1;border:3px solid #cf5b47;color:#e07560;border-radius:5px;
   font:900 min(14cqh,42px)/1 serif;transform:rotate(-8deg);animation:sea-stamp .3s 1s both
 }
