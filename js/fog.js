@@ -5,10 +5,13 @@ export function fogPairs(board,fog,siege=null){const out=[];const hidden=new Set
 export function duelFailed(board,level){return !!level.duel&&!board.includes(1)&&board.includes(9);}
 export function fogRemove(board,fog,a,b,level,siege=null){
  if(fog.includes(a)||fog.includes(b)||!linkable(board,a,b,siege))return null;
- const adjacent=i=>[a,b].some(j=>Math.abs(i%7-j%7)+Math.abs((i/7|0)-(j/7|0))===1);
- const hidden=new Set(fog.filter(i=>!adjacent(i))),tokens=board.map((v,i)=>hidden.has(i)?-v:v);tokens[a]=tokens[b]=0;
+ return removeFogTiles(board,fog,[a,b],level,siege);
+}
+export function removeFogTiles(board,fog,cells,level,siege=null){
+ const adjacent=i=>cells.some(j=>Math.abs(i%7-j%7)+Math.abs((i/7|0)-(j/7|0))===1);
+ const hidden=new Set(fog.filter(i=>!adjacent(i))),tokens=board.map((v,i)=>hidden.has(i)?-v:v);for(const i of cells)tokens[i]=0;
  let next=level.falling?(siege?fallSiege(tokens,level.mask,siege):fall(tokens,level.mask)):tokens;
- if(level.left)next=squeezeLeft(next,level.mask,[a/7|0,b/7|0],siege);
+ if(level.left)next=squeezeLeft(next,level.mask,cells.map(i=>i/7|0),siege);
  return {board:next.map(Math.abs),fog:next.flatMap((v,i)=>v<0?[i]:[])};
 }
 export function fogSupply(board,fog,queues,level,siege=null){
