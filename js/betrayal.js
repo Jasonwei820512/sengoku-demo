@@ -1,5 +1,5 @@
 import {newFire,tickFire,firePairs,moveIds} from './fire.js';
-import {fogRemove,fogSupply} from './fog.js';
+import {fogRemove,fogSupply} from './ambush.js';
 import {newSiege,advanceSiege,targetFailed} from './rules.js';
 export function betray(board,left,from=13,to=1){const next=Math.max(0,left-1);return {board:next===0&&left>0?board.map(v=>v===from?to:v):board.slice(),left:next};}
 export function solveBetrayal(board,queues,level,events=[],mode='early',tempo=2,{timeout=150}={}){
@@ -17,5 +17,5 @@ export function solveBetrayal(board,queues,level,events=[],mode='early',tempo=2,
  const tail=dfs(r.board,nq,r.fog,ni,nf,ns,nb.left,n+1);if(tail)return [[a,c],...tail];
  }dead.add(key);return null;}
  const ids=board.map((v,i)=>v?i+1:0),fire=tickFire(newFire(events),ids,0).state;
- return dfs(board,queues,level.fog||[],ids,fire,level.siege?newSiege(level):null,level.betrayal,0);
+ return dfs(board,queues,level.ambush||[],ids,fire,level.siege?newSiege(level):null,level.betrayal,0);
 }

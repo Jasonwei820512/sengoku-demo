@@ -90,7 +90,7 @@
       "short": "Shinsuke",
       "kana": "Mori Shinsuke",
       "epithet": "The Man Who Felled Yoshimoto",
-      "line": "One of Nobunaga's mounted guards. The Chronicle of Lord Nobunaga records that he took Imagawa Yoshimoto's head at Okehazama."
+      "line": "One of Nobunaga's mounted guards. The Chronicle of Lord Nobunaga records that he struck down Imagawa Yoshimoto at Okehazama."
     },
     "08_阿市": {
       "name": "Oichi",
@@ -144,6 +144,6 @@
   },
   "rules": {
     "falling": "When you match tiles, the tiles above them drop.",
-    "target10": "Decisive battle! Clear all four Imagawa Yoshimoto tiles by the end of match 14 or lose."
+    "target10": "Decisive battle! Clear all four Imagawa Yoshimoto tiles by the end of match 20 or lose."
   }
 }

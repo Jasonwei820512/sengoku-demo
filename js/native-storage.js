@@ -41,11 +41,4 @@ export const nativeStorage = {
   flush: () => queue
 };
 
-export function haptic(kind, enabled) {
-  if (!enabled) return;
-  try {
-    const plugin = globalThis.Capacitor?.Plugins?.Haptics;
-    const style = kind === 'match' ? 'LIGHT' : 'MEDIUM';
-    Promise.resolve(plugin?.impact({style})).catch(() => {});
-  } catch {}
-}
+export {haptic} from './haptics.js';

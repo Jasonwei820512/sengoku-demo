@@ -32,11 +32,11 @@ export function strategyCount(stock) {
   return Object.values(stock).reduce((sum, count) => sum + count, 0);
 }
 
-export function strategyTargets(board, ids, fog, locked, index, strategy) {
+export function strategyTargets(board, ids, fog, locked, index, strategy, mist=[]) {
   const allowLocked = strategy === 'monomi';
-  if (!board[index] || fog.includes(index) || (!allowLocked && locked.includes(ids[index]))) return [];
+  if (!board[index] || fog.includes(index) || mist.includes(index) || (!allowLocked && locked.includes(ids[index]))) return [];
   return board.flatMap((value, i) =>
-    value === board[index] && (strategy === 'sougakari' || !fog.includes(i)) && (allowLocked || !locked.includes(ids[i])) ? [i] : []);
+    value === board[index] && !mist.includes(i) && !fog.includes(i) && (allowLocked || !locked.includes(ids[i])) ? [i] : []);
 }
 
 export function battleStars(win, remaining, time, relaxed, used) {

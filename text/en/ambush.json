@@ -1,0 +1,5 @@
+{
+  "ambushRule85": "Face-down tiles are ambush troops. Clear a tile directly above, below, left or right to reveal them.",
+  "ambushTap85": "Clear a neighboring tile to reveal this one.",
+  "strategyHelp.sougakari": "Remove all face-up, unlocked tiles of the chosen warrior outside the fog"
+}

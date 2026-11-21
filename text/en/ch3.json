@@ -140,8 +140,7 @@
   },
   "rules": {
     "falling": "When you match tiles, the tiles above them drop.",
-    "construction": "The top row shows the next timber supply. Each column with room gets one tile. Timber waits above full columns. Clear the board and all timber to win. Retreat restores both, and the clock keeps running.",
-    "siege": "Barricades spread inward through empty spaces from the edge. Tiles stay in place. Breakout removes the innermost layer. If you have no matches and no Breakout uses left, you lose.",
-    "boss": "Rearguard: Clear all four Nagamasa tiles before the third barricade closes in."
+    "siege": "The enemy seals the outer route, then lowers camp curtains across empty spaces from the edge inward. Tiles stay in place. Breakout removes the innermost layer. If you have no matches and no Breakout uses left, you lose.",
+    "boss": "Rearguard: Clear all four Nagamasa tiles before the third layer closes in."
   }
 }

@@ -130,11 +130,7 @@
     }
   },
   "rules": {
-    "falling": "When you match tiles, the tiles above them drop.",
-    "construction": "The top row shows the next timber supply. Each column with room gets one tile. Timber waits above full columns. Clear the board and all timber to win. Retreat restores both, and the clock keeps running.",
-    "siege": "Barricades spread inward through empty spaces from the edge. Tiles stay in place. Breakout removes the innermost layer. If you have no matches and no Breakout uses left, you lose.",
-    "boss": "Three-Rank Volley: Clear all four tiles of the red-armored commander Yamagata Masakage by the end of match 11.",
-    "fog": "You cannot select fogged tiles or connect through them. Match a tile directly above, below or beside one to clear its fog. Redeploy shuffles only visible tiles. Retreat restores fog.",
-    "left": "Cavalry Charge: In matched rows only, tiles shift left toward the palisade. In battles with gravity, tiles drop first and then shift."
+    "boss": "Three-Rank Volley: Clear all four tiles of the red-armored commander Yamagata Masakage by the end of match 10.",
+    "left": "Only rows containing cleared tiles shift left. Other rows stay in place."
   }
 }

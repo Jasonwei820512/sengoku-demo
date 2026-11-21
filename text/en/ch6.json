@@ -131,11 +131,7 @@
   },
   "rules": {
     "falling": "When you match tiles, the tiles above them drop.",
-    "construction": "The top row shows the next timber supply. Each column with room gets one tile. Timber waits above full columns. Clear the board and all timber to win. Retreat restores both, and the clock keeps running.",
-    "siege": "Barricades spread inward through empty spaces from the edge. Tiles stay in place. Breakout removes the innermost layer. If you have no matches and no Breakout uses left, you lose.",
-    "boss": "Save Nobunaga's two tiles from the flames. You lose if they lock.",
-    "fog": "You cannot select fogged tiles or connect through them. Match a tile directly above, below or beside one to clear its fog. Redeploy shuffles only visible tiles. Retreat restores fog.",
-    "left": "Only the row where tiles were matched shifts left. Other rows stay in place.",
-    "fire": "Two matching tiles catch fire. They lock when their move counter reaches zero, costing you 15 seconds. A locked pair can only match with each other. Clearing it earns no points and ends your combo."
+    "boss": "Clear either burning Nobunaga tile to rescue him. You lose only if they become chained.",
+    "fire": "Clear either burning tile to put out both fires. If time runs out, the two tiles are chained and can only match each other."
   }
 }

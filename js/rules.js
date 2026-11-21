@@ -1,13 +1,16 @@
 import shuffleBank from './shuffle-bank.js';
 export const W=7,H=8;
 const dirs=[[1,0],[0,1],[-1,0],[0,-1]];
-export function path(board,a,b,ignoreType=false, siege=null){
- if(a===b||!board[a]||!board[b]||(!ignoreType&&board[a]!==board[b]))return null;
+function covered(mist,x,y){
+ return mist?.has(Math.max(0,Math.min(H-1,y))*W+Math.max(0,Math.min(W-1,x)));
+}
+export function path(board,a,b,ignoreType=false, siege=null,mist=null){
+ if(a===b||mist?.has(a)||mist?.has(b)||!board[a]||!board[b]||(!ignoreType&&board[a]!==board[b]))return null;
  const [sx,sy]=[a%W,Math.floor(a/W)],[tx,ty]=[b%W,Math.floor(b/W)],queue=[],seen=new Map();
  for(let d=0;d<4;d++)queue.push({x:sx,y:sy,d,t:0,p:[[sx,sy]]});
  for(let q=0;q<queue.length;q++){
   const s=queue[q],[dx,dy]=dirs[s.d],x=s.x+dx,y=s.y+dy;
-  if(x< -1||x>W||y< -1||y>H)continue;
+  if(x< -1||x>W||y< -1||y>H||covered(mist,x,y))continue;
   if(siege&&((siege.noOuter||siege.layers.length)&& (x<0||x>=W||y<0||y>=H)||siege.layers.some(r=>r.includes(y*W+x))&&x>=0&&x<W&&y>=0&&y<H))continue;
   const p=[...s.p,[x,y]];if(x===tx&&y===ty)return p;
   if(x>=0&&x<W&&y>=0&&y<H&&board[y*W+x])continue;
@@ -15,11 +18,11 @@ export function path(board,a,b,ignoreType=false, siege=null){
  }return null;
 }
 // Boolean routing avoids allocating BFS paths in the hot solver/shuffle loop.
-export function linkable(board,a,b,siege=null){
- if(a===b||!board[a]||board[a]!==board[b])return false;
+export function linkable(board,a,b,siege=null,mist=null){
+ if(a===b||mist?.has(a)||mist?.has(b)||!board[a]||board[a]!==board[b])return false;
  const ax=a%7,ay=a/7|0,bx=b%7,by=b/7|0;
  const blocked=new Set(siege?.layers.flat()||[]),noOuter=siege&&(siege.noOuter||siege.layers.length);
- const clear=(x,y)=>{if(x<0||x>=7||y<0||y>=8)return !noOuter;const i=y*7+x;return !blocked.has(i)&&(!board[i]||i===a||i===b);};
+ const clear=(x,y)=>{if(covered(mist,x,y))return false;if(x<0||x>=7||y<0||y>=8)return !noOuter;const i=y*7+x;return !blocked.has(i)&&(!board[i]||i===a||i===b);};
  const line=(x,y,u,v)=>{if(x===u){for(let k=Math.min(y,v);k<=Math.max(y,v);k++)if(!clear(x,k))return false;}else{for(let k=Math.min(x,u);k<=Math.max(x,u);k++)if(!clear(k,y))return false;}return true;};
  for(let x=-1;x<=7;x++)if(line(ax,ay,x,ay)&&line(x,ay,x,by)&&line(x,by,bx,by))return true;
  for(let y=-1;y<=8;y++)if(line(ax,ay,ax,y)&&line(ax,y,bx,y)&&line(bx,y,bx,by))return true;
